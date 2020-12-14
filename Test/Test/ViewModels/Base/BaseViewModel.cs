@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace Test.ViewModels.Base
 {
-    public class BaseViewModel : BindableBase, INavigationAware, IDestructible
+    public class BaseViewModel : BindableBase, INavigationAware
     {
         INavigationService _navigationService;
         public DelegateCommand<string> GoToView =>  new DelegateCommand<string>(OnGoToView);
@@ -34,11 +34,6 @@ namespace Test.ViewModels.Base
 
         public void OnNavigatedTo(INavigationParameters parameters)
         {
-        }
-
-        public void Destroy()
-        {
-            throw new NotImplementedException();
         }
     }
 }

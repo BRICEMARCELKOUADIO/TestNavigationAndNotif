@@ -1,16 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
              x:Class="Test.Views.HomeView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label FontSize="20" BackgroundColor="Black"  TextColor="White" FontAttributes="Bold" Text="Go To Page 1"
+        <Grid RowDefinitions="Auto,*" >
+            <Frame Padding="0" HeightRequest="70" HorizontalOptions="FillAndExpand" BackgroundColor="#212121">
+                <ImageButton Command="{Binding DisplayBurger}" Source="burgerIcon" HeightRequest="50" WidthRequest="50" 
+                             HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0" />
+            </Frame>
+            <StackLayout Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                <Label FontSize="20" BackgroundColor="Black"  TextColor="White" FontAttributes="Bold" Text="Go To Page 1"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" >
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding GoToView}" CommandParameter="Page1" />
-                </Label.GestureRecognizers>
-            </Label>
-        </StackLayout>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToView}" CommandParameter="Page1" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
