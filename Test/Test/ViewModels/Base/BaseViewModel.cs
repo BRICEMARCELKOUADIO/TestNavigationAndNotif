@@ -11,13 +11,11 @@ namespace Test.ViewModels.Base
     public class BaseViewModel : BindableBase, INavigationAware, IDestructible
     {
         INavigationService _navigationService;
-        public DelegateCommand<string> GoToView { get; set; }
-        public DelegateCommand GoBack { get; set; }
+        public DelegateCommand<string> GoToView =>  new DelegateCommand<string>(OnGoToView);
+        public DelegateCommand GoBack => new DelegateCommand(OnGoBack);
         public BaseViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
-            GoToView = new DelegateCommand<string>(OnGoToView);
-            GoBack = new DelegateCommand(OnGoBack);
         }
 
 
