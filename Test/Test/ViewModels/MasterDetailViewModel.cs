@@ -19,7 +19,7 @@ namespace Test.ViewModels
 
         private async void OnNavigateCommand(string page)
         {
-            await _navigationService.NavigateAsync($"/MasterDetailView/NavigationPage/Home/{page}").ConfigureAwait(false);
+            await _navigationService.NavigateAsync($"/MasterDetailPageView/NavigationPage/Home/{page}").ConfigureAwait(false);
         }
     }
 }
