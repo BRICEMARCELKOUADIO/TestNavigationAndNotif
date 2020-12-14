@@ -4,7 +4,7 @@
              x:Class="Test.Views.HomeView">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Go To Page 1"
+            <Label FontSize="20" BackgroundColor="Black"  TextColor="White" FontAttributes="Bold" Text="Go To Page 1"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" >
                 <Label.GestureRecognizers>

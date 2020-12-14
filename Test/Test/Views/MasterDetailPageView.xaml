@@ -5,9 +5,9 @@
     <MasterDetailPage.Master>
         <ContentPage Title="Home" BackgroundColor="#212121" >
             <StackLayout Spacing="30" BackgroundColor="#212121" Padding="10">
-                <Label HorizontalOptions="Center" Text="Page 1" TextColor="GhostWhite">
+                <Label FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" Text="Go To Page 1 >>>" TextColor="GhostWhite">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding GoToView}" CommandParameter="Page1" />
+                        <TapGestureRecognizer Command="{Binding NavigateCommand, Mode=TwoWay}" CommandParameter="Page1" />
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>

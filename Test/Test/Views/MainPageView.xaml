@@ -11,7 +11,7 @@
             <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
             <Label FontSize="20" TextColor="Black" Padding="30,24,30,0">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding GoToView}" CommandParameter="/MasterDetailView/NavigationPage/Home" NumberOfTapsRequired="1" />
+                    <TapGestureRecognizer Command="{Binding NavigateCommand, Mode=TwoWay}" CommandParameter="Home" NumberOfTapsRequired="1" />
                 </Label.GestureRecognizers>
                 <Label.FormattedText>
                     <FormattedString>

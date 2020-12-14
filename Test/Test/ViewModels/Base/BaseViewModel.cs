@@ -11,8 +11,8 @@ namespace Test.ViewModels.Base
     public class BaseViewModel : BindableBase, INavigationAware, IDestructible
     {
         INavigationService _navigationService;
-        public readonly ICommand GoToView;
-        public readonly ICommand GoBack;
+        public DelegateCommand<string> GoToView { get; set; }
+        public DelegateCommand GoBack { get; set; }
         public BaseViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
@@ -21,14 +21,14 @@ namespace Test.ViewModels.Base
         }
 
 
-        private void OnGoToView(string page)
+        private async void OnGoToView(string page)
         {
-            _navigationService.NavigateAsync($"{page}");
+            await _navigationService.NavigateAsync($"{page}");
         }
 
-        private void OnGoBack()
+        private async void OnGoBack()
         {
-            _navigationService.GoBackAsync();
+            await _navigationService.GoBackAsync();
         }
         public void OnNavigatedFrom(INavigationParameters parameters)
         {
