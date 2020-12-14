@@ -21,12 +21,12 @@ namespace Test.ViewModels.Base
         }
 
 
-        public void OnGoToView(string page)
+        private void OnGoToView(string page)
         {
             _navigationService.NavigateAsync($"{page}");
         }
 
-        public void OnGoBack()
+        private void OnGoBack()
         {
             _navigationService.GoBackAsync();
         }
