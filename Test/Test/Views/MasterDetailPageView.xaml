@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Test.Views.MasterDetailPageView">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Home" BackgroundColor="#212121" >
+            <StackLayout Spacing="30" BackgroundColor="#212121" Padding="10">
+                <Label HorizontalOptions="Center" Text="Page 1" TextColor="GhostWhite">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToView}" CommandParameter="Page1" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+</MasterDetailPage>
