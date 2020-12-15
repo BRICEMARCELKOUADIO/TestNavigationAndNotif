@@ -8,6 +8,8 @@ using Android.Widget;
 using Android.OS;
 using Prism;
 using Prism.Ioc;
+using Plugin.FirebasePushNotification;
+using Android.Content;
 
 namespace Test.Droid
 {
@@ -24,12 +26,21 @@ namespace Test.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App(new AndroidInitlizer()));
+
+            //Other initialization stuff
+            FirebasePushNotificationManager.ProcessIntent(this, Intent);
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        protected override void OnNewIntent(Intent intent)
+        {
+            base.OnNewIntent(intent);
+            FirebasePushNotificationManager.ProcessIntent(this, intent);
         }
     }
     public class AndroidInitlizer : IPlatformInitializer

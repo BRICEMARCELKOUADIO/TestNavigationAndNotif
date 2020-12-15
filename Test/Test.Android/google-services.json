@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "107297860838",
+    "firebase_url": "https://kolakash-60059.firebaseio.com",
+    "project_id": "kolakash-60059",
+    "storage_bucket": "kolakash-60059.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107297860838:android:1f0c24e2aaf1042581df27",
+        "android_client_info": {
+          "package_name": "com.reewire.kolakashagent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107297860838-kocfcad8ci77n3u0ehpva9p7h6k83e5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmkvkOHVpFVEHGSVVNBUI9kmUTHQ-7Rkg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107297860838-kocfcad8ci77n3u0ehpva9p7h6k83e5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107297860838:android:8fb5f462d7d8165281df27",
+        "android_client_info": {
+          "package_name": "com.reewire.kolakashclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107297860838-kocfcad8ci77n3u0ehpva9p7h6k83e5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmkvkOHVpFVEHGSVVNBUI9kmUTHQ-7Rkg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107297860838-kocfcad8ci77n3u0ehpva9p7h6k83e5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107297860838:android:6df148735039333381df27",
+        "android_client_info": {
+          "package_name": "com.reewire.kolakashmerchant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107297860838-kocfcad8ci77n3u0ehpva9p7h6k83e5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmkvkOHVpFVEHGSVVNBUI9kmUTHQ-7Rkg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107297860838-kocfcad8ci77n3u0ehpva9p7h6k83e5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

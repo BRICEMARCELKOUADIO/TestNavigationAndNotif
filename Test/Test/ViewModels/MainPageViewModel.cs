@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using Plugin.FirebasePushNotification;
+using Prism.Commands;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Test.ViewModels
         {
             _navigationService = navigationService;
            NavigateCommand = new DelegateCommand<string>(OnNavigateCommand);
+            CrossFirebasePushNotification.Current.Subscribe("kolakashclient_773456789");
         }
 
         private async void OnNavigateCommand(string page)

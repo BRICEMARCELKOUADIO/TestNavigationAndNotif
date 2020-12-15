@@ -1,5 +1,7 @@
-﻿using Prism;
+﻿using Plugin.FirebasePushNotification;
+using Prism;
 using Prism.Ioc;
+using Prism.Services;
 using Prism.Unity;
 using System;
 using Test.ViewModels;
@@ -20,6 +22,7 @@ namespace Test
         protected override void OnStart()
         {
             // Handle when your app starts
+
         }
 
         protected override void OnSleep()
@@ -46,6 +49,41 @@ namespace Test
         protected override void OnInitialized()
         {
             InitializeComponent();
+
+            CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) =>
+            {
+                System.Diagnostics.Debug.WriteLine($"TOKEN : {p.Token}");
+            };
+
+            CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) =>
+            {
+                if (p.Data != null)
+                {
+                    var alert = Container.Resolve<IPageDialogService>();
+                    alert.DisplayAlertAsync(p.Data["title"].ToString(), p.Data["body"].ToString(), "OK");
+                }
+                 
+            };
+
+            CrossFirebasePushNotification.Current.OnNotificationOpened += (s, p) =>
+            {
+                System.Diagnostics.Debug.WriteLine("Opened");
+                foreach (var data in p.Data)
+                {
+                    System.Diagnostics.Debug.WriteLine($"{data.Key} : {data.Value}");
+                }
+            };
+
+            CrossFirebasePushNotification.Current.OnNotificationAction += (s, p) =>
+            {
+                
+            };
+
+            CrossFirebasePushNotification.Current.OnNotificationDeleted += (s, p) =>
+            {
+
+
+            };
         }
     }
 }

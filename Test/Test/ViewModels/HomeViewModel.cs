@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using Plugin.FirebasePushNotification;
+using Prism.Commands;
 using Prism.Events;
 using Prism.Navigation;
 using System;
