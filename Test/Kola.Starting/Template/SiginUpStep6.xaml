@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure"
+             Margin="40,0"
+             x:Class="Kola.Starting.Template.SiginUpStep6">
+    <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+        <StackLayout Padding="0" Spacing="10">
+            <Label HorizontalOptions="Center" Text="Resume" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource color-summary-title}" FontFamily="{StaticResource AssistantBold}" />
+            <Frame CornerRadius="10" BackgroundColor="{StaticResource color-summary-background}" BorderColor="{StaticResource color-summary-border}" Padding="5,10">
+                <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                    <StackLayout Spacing="5">
+                        <Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" Text="Picture*" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Frame CornerRadius="5" Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Padding="3" BackgroundColor="{StaticResource color-fourth}" BorderColor="{StaticResource color-fourth}" >
+                                <Image HeightRequest="76" WidthRequest="88" Source="{Binding UserImage}" BackgroundColor="{StaticResource color-summary-background}" />
+                            </Frame>
+                        </Grid>
+                        <Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" Text="{localization:Translate choose_title}" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding Gender.Value}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>
+                        <Grid ColumnSpacing="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" >
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{localization:Translate first_name}"/>
+                                            <Span Text=" *" />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                        <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding FirstName.Value}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>
+                        <Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{localization:Translate last_name}"/>
+                                            <Span Text=" *" />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding LastName.Value}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>
+                        <Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" >
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{localization:Translate email}"/>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding Email.Value}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>
+                        <Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" >
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{localization:Translate country}"/>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding Country.Value}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>
+                        <Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{localization:Translate county_of_identity_document}"/>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding CountryIdentityDocument.Value}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>
+                        <Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{localization:Translate id_type}"/>
+                                            <Span Text=" *" />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding IdentityDocumentType.Value}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>
+                        <Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{localization:Translate id_number}"/>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding IdentityDocumentNumber.Value}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>
+                        <Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{localization:Translate issue_date}"/>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding StartingDateIdentityDocument.Value, StringFormat='{0:yyyy-MM-dd}'}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>
+                        <Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{localization:Translate expiration_date}"/>
+                                            <Span Text=" *" />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding ExpireDateIdentityDocument.Value, StringFormat='{0:yyyy-MM-dd}'}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>
+                        <Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{localization:Translate counties}"/>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding Counties.Value}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>
+                        <Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{localization:Translate district}"/>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding District.Value}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>
+                        <Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{localization:Translate cities_and_towns}"/>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding CitiesAndTowns.Value}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>
+                        <Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{localization:Translate cities_and_towns}"/>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding CitiesAndTowns.Value}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>
+                        <!--<Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{localization:Translate communities}"/>
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding Communities.Value}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>-->
+                        <Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{localization:Translate phone_number}"/>
+                                            <Span Text=" *" />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding PhoneNumber.Value}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>
+                        <Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{localization:Translate security_questions}"/>
+                                            <Span Text=" *" />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding SecurityQuestion.Value}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>
+                        <Grid ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" FontSize="14" TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{localization:Translate answer}"/>
+                                            <Span Text=" *" />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="1" VerticalOptions="Start" HorizontalOptions="Center" Text=" : " FontSize="14"  TextColor="{StaticResource color-summary-libele}" FontFamily="{StaticResource AssistantRegular}" />
+                            <Label Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Text="{Binding Answer.Value}" FontSize="14"  TextColor="{StaticResource color-summary-value}" FontFamily="{StaticResource AssistantBold}" />
+                        </Grid>
+                    </StackLayout>
+                </ScrollView>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+
+</ContentView>

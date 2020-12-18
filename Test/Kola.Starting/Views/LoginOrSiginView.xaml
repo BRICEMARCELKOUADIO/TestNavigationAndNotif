@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource color-background-page}"
+             xmlns:extension="clr-namespace:Kola.Infrastructure.Design;assembly=Kola.Infrastructure" 
+             xmlns:controls="clr-namespace:Kola.Infrastructure.Controls;assembly=Kola.Infrastructure" 
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure"
+             x:Class="Kola.Starting.Views.LoginOrSiginView">
+    <ContentPage.Content>
+        <Grid Margin="0" Padding="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="6*" />
+                    <RowDefinition Height="4*" />
+                </Grid.RowDefinitions>
+                <Frame Padding="0" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0">
+                    <StackLayout Spacing="25" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image  Source="{extension:ImageSource login_logo}" HeightRequest="63" WidthRequest="250" Aspect="AspectFit" />
+                        <StackLayout HorizontalOptions="Center" Spacing="0">
+                            <Label Text="{localization:Translate welcome_text_1}" TextColor="{StaticResource color-input-los-title}" FontSize="22" 
+                           FontFamily="{StaticResource OpenSansBoldItalic}" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                            <Label Text="{localization:Translate welcome_text_2}" TextColor="{StaticResource color-input-los-title}" FontSize="22" 
+                           FontFamily="{StaticResource OpenSansBoldItalic}" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <StackLayout Spacing="20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="1">
+                    <Frame HasShadow="False" Padding="0" CornerRadius="50" WidthRequest="176" HorizontalOptions="Center" HeightRequest="59" 
+                       BackgroundColor="{StaticResource color-buttom-los-login-background}" BorderColor="{StaticResource color-buttom-los-login-border}">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding GotoPageCommand}" CommandParameter="Login"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="{Binding LoginText.Value, Converter={StaticResource TranslateUpperInvariantConverter}}" FontFamily="{StaticResource OpenSansRegular}" FontSize="18" FontAttributes="Bold" 
+                           TextColor="{StaticResource color-buttom-los-login-label}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Frame>
+
+                    <Frame HasShadow="False" Padding="0" CornerRadius="50" WidthRequest="176" HorizontalOptions="Center" HeightRequest="59" 
+                       BackgroundColor="{StaticResource color-secondary}">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding GotoPageCommand}" CommandParameter="SiginUp"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="{Binding SignUpText.Value, Converter={StaticResource TranslateUpperInvariantConverter}}" FontFamily="{StaticResource OpenSansRegular}" FontAttributes="Bold" FontSize="18" 
+                           TextColor="{StaticResource color-fourth}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Frame>
+
+                </StackLayout>
+            </Grid>
+            <controls:ActivatorView Grid.Row="0" IsVisible="{Binding IsLoading}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

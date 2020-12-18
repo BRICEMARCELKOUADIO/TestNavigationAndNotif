@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <!-- 
+    liste des codes couleurs utiisées
+    composition du nom : color-composant_description [_utilisation][_postion]
+  -->
+  <color value="#dbdbdb" name="color-otp-label-keybord_delete"></color>
+  <color value="#0000FF" name="color-input_icon"></color>
+  <color value="#eaeaec" name="color-page-background-default"></color>
+  <color value="#ffffff" name="color-buttom-background" ></color>
+  <color value="#231F20" name="color-buttom-background-second" ></color>
+  <color value="#7D4210" name="color-buttom-border" ></color>
+  <color value="#7D4210" name="color-buttom-text" ></color>
+  <color value="#DBDBDB" name="color-buttom-back-border" ></color>
+  <color value="#343433" name="color-buttom-back-text" ></color>
+  <color value="#ffffff" name="color-buttom-back-background" ></color>
+  <color value="#5A75BD" name="color-buger-separator" ></color>
+  <color value="#231F20" name="color-popup-background" ></color>
+  <color value="#231F20" name="color-popup-border" ></color>
+  <color value="#B51A64" name="color-primary" ></color>
+  <color value="#8E1A54" name="color-primary-second" ></color>
+  <color value="#3F7722" name="color-secondary" ></color>
+  <color value="#000000" name="color-third" ></color>
+  <color value="#ffffff" name="color-fourth" ></color>
+  <color value="#C6C6C6" name="color-fiveth" ></color>
+  <color value="#666666" name="color-table-label" ></color>
+  <color value="#F8F8F8" name="color-table-background" ></color>
+  <color value="#A5CD39" name="color-switch" ></color>
+  <color value="#F68888" name="color-sixth" ></color>
+  <color value="#FF0000" name="color-error" ></color>
+  <color value="#025919" name="color-success" ></color>
+  <color value="#000000" name="color-summary-title" ></color>
+  <color value="#000000" name="color-summary-libele" ></color>
+  <color value="#E9E9E9" name="color-summary-value" ></color>
+  <color value="#C3C3C3" name="color-summary-border" ></color>
+  <color value="#C3C3C3" name="color-summary-background" ></color>
+  <color value="#5A5A5A" name="color-account-title" ></color>
+  <color value="#DBDBDB" name="color-input-border" ></color>
+  <color value="#FFFFFF" name="color-input-background" ></color>
+  <color value="#707070" name="color-dropdown-background" ></color>
+  <color value="#707070" name="color-dropdown-border" ></color>
+  <color value="#FFFFFF" name="color-dropdown-text" ></color>
+  <color value="#FFFFFF" name="color-dropdown-second-background" ></color>
+  <color value="#DBDBDB" name="color-dropdown-second-border" ></color>
+  <color value="#333333" name="color-dropdown-second-text" ></color>
+  <color value="#E3E3E3" name="color-step-background-notselect" ></color>
+  <color value="#707070" name="color-input-label"></color>
+  <color value="#707070" name="color-piker-separator" ></color>
+  <color value="#000000" name="color-input-text" ></color>
+  <color value="#F0F0F0" name="color-input-border-flight" ></color>
+  <color value="#F0F0F0" name="color-input-background-flight" ></color>
+  <color value="#F06022" name="color-input-text-flight" ></color>
+  <color value="#494949" name="color-input-label-flight" ></color>
+  <color value="#F06022" name="color-buttom-border-siginup" ></color>
+  <color value="#F06022" name="color-buttom-background-siginup" ></color>
+  <color value="#FFFFFF" name="color-buttom-text-siginup" ></color>
+  <color value="#F48120" name="color-buttom-border-sigin" ></color>
+  <color value="#FFFFFF" name="color-buttom-cancel-background" ></color>
+  <color value="#DBDBDB" name="color-buttom-cancel-border" ></color>
+  <color value="#343433" name="color-buttom-cancel-text" ></color>
+  <color value="#FFFFFF" name="color-buttom-next-text" ></color>
+  <color value="#3F7722" name="color-buttom-next-border" ></color>
+  <color value="#3F7722" name="color-buttom-next-background" ></color>
+  <color value="#F48120" name="color-buttom-background-sigin" ></color>
+  <color value="#FFFFFF" name="color-buttom-text-sigin" ></color>
+  <color value="#FFFFFF" name="color-buttom-text-sigin" ></color>
+  <color value="#FFFFFF" name="color-buttom-text-sigin" ></color>
+  <color value="#FFFFFF" name="color-buttom-text-sigin" ></color>
+  <color value="#F9F9F9" name="color-Footer-background" ></color>
+  <color value="#B51A64" name="color-loading-primary" ></color>
+  <color value="#FFFFFF" name="color-loading-secondary" ></color>
+  <color value="#231F20" name="color-loading-background" ></color>
+  <color value="#FFFFFF" name="color-background-page" ></color>
+  <color value="#DBDBDB" name="color-buttom-los-login-border" ></color>
+  <color value="#FFFFFF" name="color-buttom-los-login-background" ></color>
+  <color value="#B51A64" name="color-buttom-los-login-label" ></color>
+  <color value="#3F7722" name="color-buttom-los-login-border" ></color>
+  <color value="#3F7722" name="color-buttom-los-login-background" ></color>
+  <color value="#FFFFFF" name="color-buttom-los-login-label" ></color>
+  <color value="#70706e" name="color-input-los-title" ></color>
+  <color value="#70706e" name="color-input-login-title" ></color>
+  <color value="#B51A64" name="color-buttom-next-login-border" ></color>
+  <color value="#B51A64" name="color-buttom-next-login-background" ></color>
+  <color value="#FFFFFF" name="color-buttom-next-login-label" ></color>
+  <color value="#70706e" name="color-buttom-fingerprint" ></color>
+  <color value="#70706e" name="color-buttom-fingerprint-label" ></color>
+  <color value="#000000" name="color-input-login-label" ></color> 
+  <color value="#70706e" name="color-bar-login-background" ></color>
+  <color value="#3F7722" name="color-buttom-login-create-border" ></color>
+  <color value="#FFFFFF" name="color-buttom-login-create-background" ></color>
+  <color value="#86b071" name="color-buttom-login-create-label" ></color>
+  <color value="#86b071" name="color-buttom-login-create-label-second" ></color>
+  <color value="#B51A64" name="color-buttom-otp-border" ></color>
+  <color value="#FFFFFF" name="color-buttom-otp-background" ></color>
+  <color value="#B51A64" name="color-buttom-otp-label" ></color>
+  <color value="#70706e" name="color-input-otp-title" ></color>
+  <color value="#000000" name="color-input-home-title" ></color>
+  <color value="#70706e" name="color-input-burger" ></color>
+  <color value="#FFFFFF" name="color-input-burger-second" ></color>
+  <color value="#000000" name="color-burger-background" ></color>
+  <color value="#FFFFFF" name="color-burger-title" ></color>
+  <color value="#c2c0c0" name="color-burger-separator" ></color>
+  <color value="#555555" name="color-home-option-border" ></color>
+  <color value="#FFFFFF" name="color-home-option-background" ></color>
+  <color value="#70706e" name="color-home-option-label" ></color>
+  <color value="#70706e" name="color-submenu-option-border" ></color>
+  <color value="#FFFFFF" name="color-submenu-option-background" ></color>
+  <color value="#70706e" name="color-submenu-option-label" ></color>
+  <color value="#DBDBDB" name="color-submenu-liste-border" ></color>
+  <color value="#70706e" name="color-submenu-liste-background" ></color>
+  <color value="#FFFFFF" name="color-submenu-liste-title" ></color>
+  <color value="#B51A64" name="color-submenu-liste-description" ></color>
+  <color value="#fafafa" name="color-account-liste-border" ></color>
+  <color value="#DBDBDB" name="color-account-liste-big-bg" ></color>
+  <color value="#B51A64" name="color-account-liste-background" ></color>
+  <color value="#FFFFFF" name="color-account-liste-title" ></color>
+  <color value="#B51A64" name="color-account-liste-description" ></color>
+  <color value="#B51A64" name="color-statment-header-backgroung" ></color>
+  <color value="#FFFFFF" name="color-statment-body-backgroung" ></color>
+  <color value="#d1d1d1" name="color-statment-border" ></color>
+  <color value="#B51A64" name="color-statment-border-header" ></color>
+  <color value="#FFFFFF" name="color-statment-hearder-title" ></color>
+  <color value="#019114" name="color-statment-positive-amount" ></color>
+  <color value="#c43c35" name="color-statment-negative-amount" ></color>
+  <color value="#2e7825" name="color-statment-negative-description-title" ></color>
+  <color value="#B51A64" name="color-statment-positive-description-title" ></color>
+  <color value="#2e7825" name="color-statment-time" ></color>
+  <color value="#DBDBDB" name="color-statment-separator" ></color>
+  <color value="#DBDBDB" name="color-otp-border-keybord" ></color>
+  <color value="#000000" name="color-otp-label-keybord" ></color>
+  <color value="#70706e" name="color-otp-title" ></color>
+  <color value="#464646" name="color-input-sub-menu-title" ></color>
+
+  <color value="#dbdbdb" name="color-voucher-list-border" ></color>
+  <color value="#555555" name="color-voucher-list-body-amount" ></color>
+  <color value="#0A4B39" name="color-voucher-list-body-btn-use-background" ></color>
+  <color value="#FFFFFF" name="color-voucher-list-body-btn-use-text" ></color>
+  <color value="#545454" name="color-voucher-add-border" ></color> 
+  <color value="#545454" name="color-voucher-add-text" ></color>
+
+  <color value="#555555" name="color-menu-option-border" ></color>
+  <color value="#FFFFFF" name="color-menu-option-background" ></color>
+  <color value="#70706e" name="color-menu-option-label" ></color>
+  <color value="##545454" name="color-remember_me_login" ></color>
+
+  <color value="#03470c" name="color-piker-wallet-account-name-text" ></color>
+  <color value="#000000" name="color-piker-wallet-account-balance-text" ></color>
+   <color value="#b0b0b0" name="color-piker-placeholder-text" ></color>
+  
+</config>

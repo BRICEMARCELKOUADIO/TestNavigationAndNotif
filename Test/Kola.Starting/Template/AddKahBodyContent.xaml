@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="subItemAddKashContent"
+             xmlns:controls="clr-namespace:Kola.Infrastructure.Controls;assembly=Kola.Infrastructure"
+             x:Class="Kola.Starting.Template.AddKahBodyContent">
+    <ScrollView VerticalScrollBarVisibility="Never" Orientation="Vertical"  Margin="40,0">
+        <StackLayout BindableLayout.ItemsSource="{Binding  SubMenus, Mode=TwoWay}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <controls:SubMenuItem>
+                        <controls:SubMenuItem.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=BindingContext.GotoPageCommand, Source={x:Reference subItemAddKashContent}}" 
+                                                  CommandParameter="{Binding Url}" NumberOfTapsRequired="1"/>
+                        </controls:SubMenuItem.GestureRecognizers>
+                    </controls:SubMenuItem>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </StackLayout>
+    </ScrollView>
+</ContentView>

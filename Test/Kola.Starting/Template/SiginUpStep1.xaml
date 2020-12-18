@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Margin="40,0"
+             xmlns:converter="clr-namespace:Kola.Infrastructure.Converter;assembly=Kola.Infrastructure" 
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure"
+             x:Class="Kola.Starting.Template.SiginUpStep1">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converter:BooleanInverter x:Key="invert"/>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+        <StackLayout Padding="0" Spacing="10">
+            <Frame Padding="0" HeightRequest="65" CornerRadius="30" IsEnabled="{Binding IsTakePicture.Value, Converter={StaticResource invert}}" BackgroundColor="{StaticResource color-primary}"
+                   IsVisible="{Binding IsTakePicture.Value, Converter={StaticResource invert}}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TakePictureCommand}" />
+                </Frame.GestureRecognizers>
+                <Label HorizontalOptions="Center" VerticalOptions="Center" Text="{localization:Translate take_coustomer_picture}" FontSize="13" 
+                      FontFamily="{StaticResource AssistantBold}" FontAttributes="Bold" TextColor="{StaticResource color-fourth}" />
+            </Frame>
+            <Frame CornerRadius="5" BorderColor="{StaticResource color-step-background-notselect}" IsVisible="{Binding IsTakePicture.Value}" Padding="5"  HorizontalOptions="Center" VerticalOptions="Center" >
+                <Image HorizontalOptions="Center" Source="{Binding UserImage}" VerticalOptions="Center"
+                    HeightRequest="178" WidthRequest="204" Aspect="AspectFit"  />
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentView>

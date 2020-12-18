@@ -1,0 +1,15 @@
+{
+  "Api": {
+    "AuthBaseApiUrl": "http://fmservice.authorize.dev.reewire.net/",
+    "CatalogBaseApiUrl": "http://fmservice.catalog.dev.reewire.net/",
+    "PlateformBaseApiUrl": "http://fmservice.plateform.dev.reewire.net/",
+    "ApplicationBaseApiUrl": "http://fmservice.application.dev.reewire.net/api/applications/",
+    "FetaureBaseApiUrl": "http://fmservice.webc.dev.reewire.net/",
+    "TokenEndPoint": "api/connector/token",
+    "AuthSystemId": "CLIENT_ID_1",
+    "AuthSecret": "CLIENT_SECRET_1",
+    "SystemId": "cbf1fb2a-3421-45dc-91e8-8156920571ef",
+    "CountryPrefix": "+231",
+    "NotificationQueue": "kolakashclient"
+  }
+}

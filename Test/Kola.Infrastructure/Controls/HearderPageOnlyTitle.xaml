@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid  Margin="20,10,20,0" 
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="Center"
+        BackgroundColor="Transparent"
+        xmlns:extension="clr-namespace:Kola.Infrastructure.Design;assembly=Kola.Infrastructure"
+        xmlns="http://xamarin.com/schemas/2014/forms"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="Kola.Infrastructure.Controls.HeaderPageOnlyTitle">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="Auto"/>
+    </Grid.ColumnDefinitions>
+    <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource icon-list}" TextColor="{StaticResource color-input-burger}" 
+           FontSize="20" VerticalOptions="Center" HorizontalOptions="Start">
+        <Label.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding DisplayBurger}" />
+        </Label.GestureRecognizers>
+    </Label>
+
+    <Label x:Name="headerTitle" Grid.Row="0" Grid.Column="1" FontSize="12" TextColor="{StaticResource color-fourth}"  
+           VerticalOptions="Center"  HorizontalOptions="Center" FontAttributes="Bold" FontFamily="{StaticResource OpenSansRegular}" />
+
+    <Label Grid.Column="2" Style="{StaticResource icon-stand-by}" TextColor="{StaticResource color-input-burger}" FontSize="20"
+           VerticalOptions="Center" HorizontalOptions="End" >
+        <Label.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding GotoPageCommand}" CommandParameter="Logout" />
+        </Label.GestureRecognizers>
+    </Label>
+
+</Grid> 

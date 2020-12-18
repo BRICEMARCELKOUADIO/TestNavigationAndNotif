@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure"
+             CloseWhenBackgroundIsClicked="True"
+             x:Class="Kola.Starting.Dialogs.PinCodePopupView">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <BoxView Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Opacity="0.6" BackgroundColor="{StaticResource color-third}" />
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout  Grid.Row="1"  BackgroundColor="Transparent" HorizontalOptions="Center" WidthRequest="300" Spacing="40">
+                <StackLayout Spacing="10">
+                    <Label FontAttributes="Bold" FontFamily="{StaticResource OpenSansBold}" Text="{localization:Translate enter_pincode}" HorizontalOptions="Center" FontSize="12" TextColor="{StaticResource color-fourth}" />
+                    <Frame Padding="10,0" CornerRadius="20" HorizontalOptions="Center" BackgroundColor="{StaticResource color-fourth}" HeightRequest="40" WidthRequest="240" >
+                        <Entry ReturnType="Next" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"   VerticalOptions="Center" Keyboard="Numeric" IsPassword="True" Text="{Binding PinCode.Value}" MaxLength="{Binding PinCodeMaxLength.Value}" FontSize="16" />
+                    </Frame>
+                    <StackLayout HorizontalOptions="Center" IsEnabled="{Binding FingerPrintAvailable.Value}" IsVisible="{Binding FingerPrintAvailable.Value}" >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GotoFingerPrintCommand}" />
+                        </StackLayout.GestureRecognizers>
+                        <Label Style="{StaticResource icon-login_fingerprint}" HorizontalOptions="Center" TextColor="{StaticResource color-buttom-fingerprint}" FontSize="60" />
+                        <Label Text="Use fingerprint instead" HorizontalOptions="Center"  FontFamily="{StaticResource OpenSansRegular}" FontSize="11" TextColor="{StaticResource color-fourth}" />
+                    </StackLayout>
+                    <Label IsVisible="{Binding PinCode.HasError, Mode=TwoWay}" Text="{Binding PinCode.ErrorText}" 
+                       TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                       FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+                </StackLayout>
+                <StackLayout Spacing="20" Orientation="Horizontal" BackgroundColor="Transparent" HorizontalOptions="Center">
+                    <Button Text="{Binding CancelText.Value, Converter={StaticResource TranslateUpperInvariantConverter}}" Command="{Binding GotoCancelCommand}" BackgroundColor="{StaticResource color-buttom-cancel-background}" 
+                            FontSize="14" CornerRadius="15" WidthRequest="120" HeightRequest="45" BorderColor="{StaticResource color-buttom-cancel-border}"
+                            HorizontalOptions="Center"  TextColor="{StaticResource color-buttom-cancel-text}" 
+                            FontAttributes="Bold" FontFamily="{StaticResource OpenSansBold}"  />
+                    <Button Text="{Binding SubmitText.Value, Converter={StaticResource TranslateUpperInvariantConverter}}" BackgroundColor="{StaticResource color-buttom-next-background}" Command="{Binding GotoValidateCommand}" BorderColor="{StaticResource color-buttom-next-border}" 
+                            FontSize="14" CornerRadius="15" WidthRequest="120" HeightRequest="45" 
+                        HorizontalOptions="Center" FontFamily="{StaticResource OpenSansBold}" FontAttributes="Bold" TextColor="{StaticResource color-buttom-next-text}"  />
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</popup:PopupPage>

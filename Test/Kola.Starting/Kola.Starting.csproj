@@ -1,0 +1,218 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CarouselView.FormsPlugin" Version="5.2.0" />
+    <PackageReference Include="Plugin.Fingerprint" Version="1.4.9" />
+    <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
+    <PackageReference Include="Syncfusion.Xamarin.Cards" Version="17.4.0.55" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.4.0.55" />
+    <PackageReference Include="Syncfusion.Xamarin.SfNavigationDrawer" Version="17.4.0.55" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
+    <PackageReference Include="Xamanimation" Version="1.3.0" />
+    <PackageReference Include="XForms.Plugin.AnimationNavigationPage" Version="1.0.8" />
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
+    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kola.Infrastructure\Kola.Infrastructure.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Dialogs\MessageWithActionPopupView.xaml.cs">
+      <DependentUpon>MessageWithActionPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dialogs\RejectPopupView.xaml.cs">
+      <DependentUpon>RejectPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dialogs\PikerWalletPopupView.xaml.cs">
+      <DependentUpon>PikerWalletPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dialogs\SuccessfullPopupView.xaml.cs">
+      <DependentUpon>SuccessfullPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\CreateGiftCard.xaml.cs">
+      <DependentUpon>CreateGiftCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\GiftCardStep1.xaml.cs">
+      <DependentUpon>GiftCardStep1.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\GenerateQrCodeContent.xaml.cs">
+      <DependentUpon>GenerateQrCodeContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\MerchantPaymentQrResume.xaml.cs">
+      <DependentUpon>MerchantPaymentQrResume.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\OthersBodyContent.xaml.cs">
+      <DependentUpon>OthersBodyContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\GolBodyContent.xaml.cs">
+      <DependentUpon>GolBodyContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\UtilitiesBodyContent.xaml.cs">
+      <DependentUpon>UtilitiesBodyContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\AirtimeBodyContent.xaml.cs">
+      <DependentUpon>AirtimeBodyContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\KolaPayBodyContent.xaml.cs">
+      <DependentUpon>KolaPayBodyContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\MerchantPaymentContent.xaml.cs">
+      <DependentUpon>MerchantPaymentContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\NavigationView.xaml.cs">
+      <DependentUpon>NavigationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\CharityStep1.xaml.cs">
+      <DependentUpon>CharityStep1.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\AddGiftCard.xaml.cs">
+      <DependentUpon>AddGiftCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\VouchersStep2.xaml.cs">
+      <DependentUpon>VouchersStep2.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Template\CharityStep2.xaml.cs">
+      <DependentUpon>CharityStep2.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GiftCardView.xaml.cs">
+      <DependentUpon>GiftCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GenerateQrCodeView.xaml.cs">
+      <DependentUpon>GenerateQrCodeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\OthersView.xaml.cs">
+      <DependentUpon>OthersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GolView.xaml.cs">
+      <DependentUpon>GolView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PinCodeView.xaml.cs">
+      <DependentUpon>PinCodeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\UtilitiesView.xaml.cs">
+      <DependentUpon>UtilitiesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\AirtimeView.xaml.cs">
+      <DependentUpon>AirtimeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\KolaPayView.xaml.cs">
+      <DependentUpon>KolaPayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MerchantPaymentView.xaml.cs">
+      <DependentUpon>MerchantPaymentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CharityView.xaml.cs">
+      <DependentUpon>CharityView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Dialogs\FigerprintPopupView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Dialogs\ForcePincodeChangePopupView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Dialogs\LogoutPopupView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Dialogs\PikerPopupView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Dialogs\PinCodePopupView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Dialogs\SuccessfullPopupView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Template\AddKahBodyContent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Template\GenerateQrCodeContent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Template\HomeHeaderContent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Template\KashBodyContent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Template\ManualPaymentStep1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Template\ManualPaymentStep2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Template\MerchantPaymentQrResume.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Template\MerchantPaymentScanQr.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Template\NavigationView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Template\VouchersDisplayQrCode.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Template\VouchersStep1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Template\CharityStep2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Template\WithBankStep1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Template\WithBankStep2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AddKahView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\GenerateQrCodeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\KashView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\LoginOrSiginView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\LoginView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ManualPaymentView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MerchantPaymentScanQrCodeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PinCodeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\VouchersView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\WelcomeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\WithBankView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:extension="clr-namespace:Kola.Infrastructure.Design;assembly=Kola.Infrastructure"
+             xmlns:controls="clr-namespace:Kola.Infrastructure.Controls;assembly=Kola.Infrastructure"
+             mc:Ignorable="d"
+             Margin="40,0"
+             VerticalOptions="Center"
+             HorizontalOptions="Center"
+             x:Class="Kola.Starting.Template.HomeBodyContent">
+
+    <CollectionView ItemSizingStrategy="MeasureAllItems"  x:Name="subItemContent" ItemsSource="{Binding Items}" >
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Vertical" Span="2"/>
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <controls:HomeItem>
+                    <controls:HomeItem.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Path=BindingContext.GotoPageCommand, Source={x:Reference subItemContent}}" CommandParameter="{Binding Url}" />
+                    </controls:HomeItem.GestureRecognizers>
+                </controls:HomeItem>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentView>

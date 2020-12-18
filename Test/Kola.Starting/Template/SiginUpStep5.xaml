@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Margin="40,0"
+             xmlns:extension="clr-namespace:Kola.Infrastructure.Design;assembly=Kola.Infrastructure" 
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure" xmlns:controls="clr-namespace:Kola.Infrastructure.Controls;assembly=Kola.Infrastructure"
+             x:Class="Kola.Starting.Template.SiginUpStep5">
+    <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+        <StackLayout Padding="0" Spacing="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="12" TextColor="{StaticResource color-input-label}" HorizontalOptions="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{localization:Translate address}"/>
+                                <Span Text=" *"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-input-border}" VerticalOptions="Center" Grid.Row="1" Padding="10,0" CornerRadius="20" 
+               BackgroundColor="{StaticResource color-input-background}" >
+                    <Entry ReturnType="Next" HorizontalOptions="FillAndExpand" x:Name="Address" Text="{Binding Address.Value}" VerticalOptions="Center" TextColor="{StaticResource color-input-text}" FontAttributes="None" 
+                   FontFamily="{StaticResource AssistantBold}" FontSize="16" >
+                        <Entry.Behaviors>
+                            <controls:UpperEntryBehavior/>
+                        </Entry.Behaviors>
+                    </Entry>
+                </Frame>
+                <Label Grid.Row="2" IsVisible="{Binding Address.HasError, Mode=TwoWay}" Text="{Binding Address.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+            <Grid ColumnSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label HorizontalOptions="Start" Grid.Row="0" FontFamily="{StaticResource AssistantRegular}" TextColor="{StaticResource color-input-label}"
+                    FontSize="12" Grid.Column="0" Text="Country">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{localization:Translate country}"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Image Source="{extension:ImageSource liberia}" Grid.Row="1" HeightRequest="20" WidthRequest="30" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="0" />
+                <Label Grid.Row="0" Grid.Column="1" FontSize="12" Text="Customer's Phone Number *" TextColor="{StaticResource color-input-label}" HorizontalOptions="End">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{localization:Translate phone_number}"/>
+                                <Span Text=" *" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-input-border}" Grid.Column="1" VerticalOptions="Center" Grid.Row="1" Padding="10,0" CornerRadius="20" 
+                    BackgroundColor="{StaticResource color-input-background}" >
+                    <Entry ReturnType="Next" HorizontalOptions="FillAndExpand" Text="{Binding PhoneNumber.Value}" MaxLength="{Binding PhoneNumberMaxLength.Value}" Keyboard="Telephone" VerticalOptions="Center" TextColor="{StaticResource color-input-text}" FontAttributes="None" 
+                   FontFamily="{StaticResource AssistantBold}" FontSize="16" />
+                </Frame>
+                <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" IsVisible="{Binding PhoneNumber.HasError, Mode=TwoWay}" Text="{Binding PhoneNumber.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="12" 
+                       TextColor="{StaticResource color-input-label}" HorizontalOptions="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{localization:Translate security_questions}"/>
+                                <Span Text=" *" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-dropdown-border}" HeightRequest="43" VerticalOptions="Center" 
+                       Grid.Row="1" Padding="10,0" CornerRadius="20" 
+                    BackgroundColor="{StaticResource color-dropdown-background}" >
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OnOpenSecurityQuestionsPopupCommand}" NumberOfTapsRequired="1" />
+                    </Frame.GestureRecognizers>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label HorizontalOptions="FillAndExpand" Text="{Binding SecurityQuestion.Value}" VerticalOptions="Center" TextColor="{StaticResource color-dropdown-text}" 
+                            FontFamily="{StaticResource AssistantBold}" Grid.Column="0" FontSize="16" />
+                        <Label VerticalOptions="End" HorizontalOptions="Center" Grid.Column="1" Style="{StaticResource icon-cheveron-down}" 
+                          TextColor="{StaticResource color-dropdown-text}" FontSize="20" />
+                    </Grid>
+                </Frame>
+                <Label Grid.Row="2" IsVisible="{Binding SecurityQuestion.HasError, Mode=TwoWay}" Text="{Binding SecurityQuestion.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="12" TextColor="{StaticResource color-input-label}" HorizontalOptions="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{localization:Translate answer}"/>
+                                <Span Text=" *"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-input-border}" VerticalOptions="Center" Grid.Row="1" Padding="10,0" CornerRadius="20" 
+               BackgroundColor="{StaticResource color-input-background}" >
+                    <Entry ReturnType="Next" HorizontalOptions="FillAndExpand" Text="{Binding Answer.Value}" VerticalOptions="Center" TextColor="{StaticResource color-input-text}" FontAttributes="None" 
+                   FontFamily="{StaticResource AssistantBold}" FontSize="16" >
+                        <Entry.Behaviors>
+                            <controls:UpperEntryBehavior/>
+                        </Entry.Behaviors>
+                    </Entry>
+                </Frame>
+                <Label Grid.Row="2" IsVisible="{Binding Answer.HasError, Mode=TwoWay}" Text="{Binding Answer.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="12" TextColor="{StaticResource color-input-label}" HorizontalOptions="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{localization:Translate pin}"/>
+                                <Span Text=" *" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-input-border}" VerticalOptions="Center" Grid.Row="1" Padding="10,0" CornerRadius="20" 
+                    BackgroundColor="{StaticResource color-input-background}" >
+                    <Entry ReturnType="Next" HorizontalOptions="FillAndExpand" Text="{Binding Password.Value}" Keyboard="Numeric" MaxLength="{Binding PasswordMaxLength.Value}" VerticalOptions="Center" IsPassword="True" TextColor="{StaticResource color-input-text}" FontAttributes="None" 
+                   FontFamily="{StaticResource AssistantBold}" FontSize="16" />
+                </Frame>
+                <Label Grid.Row="2" IsVisible="{Binding Password.HasError, Mode=TwoWay}" Text="{Binding Password.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="12" TextColor="{StaticResource color-input-label}" HorizontalOptions="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{localization:Translate confirm_pin}"/>
+                                <Span Text=" *" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-input-border}" VerticalOptions="Center" Grid.Row="1" Padding="10,0" CornerRadius="20" 
+                    BackgroundColor="{StaticResource color-input-background}" >
+                    <Entry ReturnType="Next" HorizontalOptions="FillAndExpand" Text="{Binding ConfirmPassword.Value}" Keyboard="Numeric" MaxLength="{Binding PasswordMaxLength.Value}" VerticalOptions="Center" IsPassword="True" TextColor="{StaticResource color-input-text}" FontAttributes="None" 
+                   FontFamily="{StaticResource AssistantBold}" FontSize="16" />
+                </Frame>
+                <Label Grid.Row="2" IsVisible="{Binding ConfirmPassword.HasError, Mode=TwoWay}" Text="{Binding ConfirmPassword.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentView>

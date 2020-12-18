@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+      xmlns:localization="clr-namespace:Kola.Infrastructure.Localization"
+      mc:Ignorable="d"
+      Padding="5"
+      x:Class="Kola.Infrastructure.Controls.AccountInputSelect">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Label Grid.Row="0" FontSize="12" TextColor="{StaticResource color-input-label}" HorizontalOptions="End">
+        <Label.FormattedText>
+            <FormattedString>
+                <Span Text="{localization:Translate source_account}"/>
+                <Span Text=" *"/>
+            </FormattedString>
+        </Label.FormattedText>
+    </Label>
+    <Frame HasShadow="False" BorderColor="{StaticResource color-dropdown-second-border}" HeightRequest="43" VerticalOptions="Center" 
+                       Grid.Row="1" Padding="10,5" CornerRadius="20" 
+                    BackgroundColor="{StaticResource color-dropdown-second-background}" >
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding GotoOpenAccountPopupCommand}" NumberOfTapsRequired="1" />
+        </Frame.GestureRecognizers>
+        <Grid Padding="5,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout  Grid.Column="0" Orientation="Vertical" IsVisible="{Binding HasAccountSelected.Value, Mode=TwoWay}">
+                <Label HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="{StaticResource color-dropdown-second-text}" 
+                            FontFamily="{StaticResource AssistantRegular}" FontAttributes="Bold">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{Binding CurrentCurrency.Value, Mode=TwoWay}" FontSize="11" FontAttributes="Bold"/>
+                                <Span Text=" "/>
+                                <Span Text="{localization:Translate piker_wallet_account}" FontSize="11" FontAttributes="Bold"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="{StaticResource color-dropdown-second-text}" 
+                            FontFamily="{StaticResource AssistantRegular}"  >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{localization:Translate balance}" FontSize="13"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10" Grid.Column="1" >
+                <Label HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="{StaticResource color-dropdown-second-text}" 
+                       FontFamily="{StaticResource AssistantBold}" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{Binding CurrentBalance.Value, Mode=TwoWay}" FontSize="16"/>
+                                <Span Text=" "/>
+                                <Span Text="{Binding CurrentCurrency.Value, Mode=TwoWay}" FontSize="16"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource icon-cheveron-down}" 
+                       TextColor="{StaticResource color-dropdown-second-text}" FontSize="20" />
+            </StackLayout>
+        </Grid>
+    </Frame>
+    <Label Grid.Row="2" IsVisible="{Binding CurrentCurrency.HasError, Mode=TwoWay}" Text="{Binding CurrentCurrency.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+</Grid>

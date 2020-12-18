@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:Kola.Infrastructure.Controls;assembly=Kola.Infrastructure" 
+             xmlns:template="clr-namespace:Kola.Starting.Template"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="Kola.Starting.Views.WithBankView">
+    <Grid Margin="0" Padding="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <controls:HearderPage Grid.Row="0" Title="with_card" />
+            <controls:ReleveView Grid.Row="1" Margin="40,20,40,30" />
+
+            <Frame BackgroundColor="Transparent"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="2" Padding="0">
+                <StackLayout Padding="0" Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" Margin="0">
+                    <StackLayout Grid.Row="0" Padding="0,0,0,10" Spacing="0">
+                        <template:WithBankStep1 IsEnabled="{Binding FirstStep.Value}" IsVisible="{Binding FirstStep.Value}" />
+                        <template:WithBankStep2 IsEnabled="{Binding SecondStep.Value}" IsVisible="{Binding SecondStep.Value}" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <controls:FooterPreviousNext Grid.Row="3"  />
+        </Grid>
+        <controls:ActivatorView Grid.Row="0" IsVisible="{Binding IsLoading}"/>
+    </Grid>
+</ContentPage>

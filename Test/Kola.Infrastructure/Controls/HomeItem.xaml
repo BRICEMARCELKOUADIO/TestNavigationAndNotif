@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Padding="5"
+             x:Class="Kola.Infrastructure.Controls.HomeItem">
+    <Frame Margin="5" Padding="5,15,5,0" BackgroundColor="{StaticResource color-home-option-background}" BorderColor="{StaticResource color-home-option-border}"
+                            CornerRadius="10" >       
+        <StackLayout Spacing="0" HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Style="{Binding Icon, Converter={StaticResource ConvertIcon}}" FontSize="45" HorizontalOptions="Center" TextColor="{StaticResource color-home-option-label}"/>
+            <StackLayout HorizontalOptions="Center" Spacing="2">
+                <Label Text="{Binding PrimayText}" HorizontalTextAlignment="Center" FontSize="13" FontAttributes="Bold" TextColor="{StaticResource color-home-option-label}" 
+                                    FontFamily="{StaticResource OpenSansBold}" HorizontalOptions="Center" />
+                <Label Text="{Binding Secondarytext}" HorizontalTextAlignment="Center" FontSize="10" FontAttributes="Bold" TextColor="{StaticResource color-home-option-label}" 
+                                    FontFamily="{StaticResource OpenSansRegular}" HorizontalOptions="Center" />
+            </StackLayout>
+        </StackLayout>
+    </Frame>
+</StackLayout>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Kola.Infrastructure.Controls;assembly=Kola.Infrastructure"
+             xmlns:template="clr-namespace:Kola.Starting.Template"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:extension="clr-namespace:Kola.Infrastructure.Design;assembly=Kola.Infrastructure" 
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure"
+             BackgroundImageSource="{extension:ImageSource sc_background}"
+             x:Class="Kola.Starting.Views.ManualPaymentView">
+    <Grid Margin="0" Padding="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <controls:HearderPage Grid.Row="0" Title="Merchant" />
+            <controls:ReleveView Grid.Row="1" Margin="40,20,40,30" />
+            <controls:StepBar Margin="0,0,0,10" HorizontalOptions="Center" Grid.Row="2" StepsTotal="{Binding TotalStep}" StepCurrent="{Binding CurrentStep}" 
+                          StepTextColor="{StaticResource color-fourth}" StepColor="{StaticResource color-primary}" StepTextColorNotActive="{StaticResource color-fourth}" 
+                          StepColorNotActive="{StaticResource color-step-background-notselect}" />
+            <Frame BackgroundColor="Transparent"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="3" Padding="0">
+                <StackLayout Padding="0" Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" Margin="0">
+                    <Label FontFamily="{StaticResource OpenSansBold}" FontAttributes="Bold" Text="{localization:Translate welcome_manuel_payment}"
+                                           HorizontalTextAlignment="Center" 
+                                           VerticalTextAlignment="Center"  Margin="0,0,0,20"
+                                           FontSize="14"
+                                           TextColor="{StaticResource color-input-sub-menu-title}" />
+                    <ScrollView VerticalScrollBarVisibility="Never" Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <StackLayout Grid.Row="0" Padding="0,0,0,10" Spacing="0" >
+                            <template:ManualPaymentStep1 IsEnabled="{Binding FirstStep.Value}" IsVisible="{Binding FirstStep.Value}" />
+                            <template:ManualPaymentStep2 IsEnabled="{Binding SecondStep.Value}" IsVisible="{Binding SecondStep.Value}" />
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+            </Frame>
+
+            <controls:FooterPreviousNext Grid.Row="4" IsEnabled="{Binding IMakePayement.Value, Converter={StaticResource BooleanInverter}}" 
+                                     IsVisible="{Binding IMakePayement.Value, Converter={StaticResource BooleanInverter}}" />
+        </Grid>
+        <controls:ActivatorView Grid.Row="0" IsVisible="{Binding IsLoading}"/>
+    </Grid>
+</ContentPage>

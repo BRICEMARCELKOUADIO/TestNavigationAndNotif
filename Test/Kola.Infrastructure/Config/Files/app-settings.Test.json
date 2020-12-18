@@ -1,0 +1,15 @@
+{
+  "Api": {
+    "AuthBaseApiUrl": "http://auth.service.test.reewire.net/",
+    "CatalogBaseApiUrl": "http://catalog.service.test.reewire.net/",
+    "PlateformBaseApiUrl": "http://plateform.service.test.reewire.net/",
+    "ApplicationBaseApiUrl": "http://application.service.test.reewire.net/api/applications/",
+    "FetaureBaseApiUrl": "http://webc.service.test.reewire.net/",
+    "TokenEndPoint": "api/connector/token",
+    "AuthSystemId": "CLIENT_ID_1",
+    "AuthSecret": "CLIENT_SECRET_1",
+    "SystemId": "cbf1fb2a-3421-45dc-91e8-8156920571ef",
+    "CountryPrefix": "+231",
+    "NotificationQueue": "kolakashclient"
+  }
+}

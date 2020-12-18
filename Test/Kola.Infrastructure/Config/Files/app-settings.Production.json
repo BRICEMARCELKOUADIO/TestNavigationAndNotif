@@ -1,0 +1,15 @@
+{
+  "Api": {
+    "AuthBaseApiUrl": "",
+    "CatalogBaseApiUrl": "",
+    "PlateformBaseApiUrl": "",
+    "ApplicationBaseApiUrl": "",
+    "FetaureBaseApiUrl": "",
+    "TokenEndPoint": "api/connector/token",
+    "AuthSystemId": "",
+    "AuthSecret": "",
+    "SystemId": "",
+    "CountryPrefix": "",
+    "NotificationQueue": "kolakashclient"
+  }
+}

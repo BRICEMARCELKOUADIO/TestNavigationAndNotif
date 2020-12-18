@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid ColumnSpacing="20" xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kola.Infrastructure.Controls.CheckedElement">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+
+    <Frame Grid.Row="0" Padding="0" HasShadow="False" HeightRequest="46" x:Name="first" Grid.Column="0" >
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Tapped="first_Tapped" />
+        </Frame.GestureRecognizers>
+        <Label x:Name="firstLabel" HorizontalOptions="Center" FontFamily="{StaticResource AssistantBold}" FontSize="16" VerticalOptions="Center" />
+    </Frame>
+    <Frame Grid.Row="0" Padding="0" HasShadow="False" HeightRequest="46" x:Name="second" Grid.Column="1" >
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Tapped="second_Tapped" />
+        </Frame.GestureRecognizers>
+        <Label x:Name="secondtLabel" HorizontalOptions="Center" FontFamily="{StaticResource AssistantBold}" FontSize="16" VerticalOptions="Center" />
+    </Frame>
+    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" IsVisible="{Binding CheckedAgent.HasError, Mode=TwoWay}" Text="{Binding CheckedAgent.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+</Grid>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             x:Class="Kola.Starting.Template.MerchantPaymentScanQr">
+    <StackLayout>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <forms:ZXingScannerView IsScanning="{Binding IsScanning}" IsAnalyzing="{Binding IsAnalyzing}" Result="{Binding Result, Mode=TwoWay}" ScanResultCommand="{Binding QRScanResultCommand}"></forms:ZXingScannerView>
+            <forms:ZXingDefaultOverlay TopText="Merchant Payment" BottomText="Scan QRCode" ShowFlashButton="False" Opacity="0.9"></forms:ZXingDefaultOverlay>
+        </Grid>
+    </StackLayout>
+</ContentView>

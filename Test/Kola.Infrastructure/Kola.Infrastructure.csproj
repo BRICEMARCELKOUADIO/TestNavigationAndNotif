@@ -1,0 +1,131 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Config\Files\app-settings.Development.json" />
+    <None Remove="Config\Files\app-settings.Production.json" />
+    <None Remove="Config\Files\app-settings.Test.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Design\Images\home_card_balance.png" />
+    <EmbeddedResource Include="Design\Images\home_shutdown_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Design\Images\home_logo.png" />
+    <EmbeddedResource Include="Design\Images\liberia.png" />
+    <EmbeddedResource Include="Design\Images\login_fingerprint-confirmation_icon.png" />
+    <EmbeddedResource Include="Design\Images\login_logo.png" />
+    <EmbeddedResource Include="Design\Images\sc_background.png" />
+    <EmbeddedResource Include="Design\Images\sc_logo.png" />
+    <EmbeddedResource Include="Config\Files\app-color.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\Files\app-icon.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\Files\app-settings.Development.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\Files\app-settings.Production.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\Files\app-settings.Test.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Plugin.FirebasePushNotification" Version="3.3.10" />
+    <PackageReference Include="Plugin.PushNotification" Version="3.3.3" />
+    <PackageReference Include="Prism.Plugin.Popups" Version="7.2.0.1046" />
+    <PackageReference Include="reewire.core.services" Version="3.0.0" />
+    <PackageReference Include="Xam.Plugins.Notifier" Version="3.0.1" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1821" />
+    <PackageReference Include="Prism.DryIoc.Forms" Version="8.0.0.1909" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Controls\ActivatorView.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\Empty.xaml.cs">
+      <DependentUpon>Empty.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\FooterPreviousNext.xaml.cs">
+      <DependentUpon>FooterPreviousNext.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\FooterAccept.xaml.cs">
+      <DependentUpon>FooterAccept.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\FooterValidate.xaml.cs">
+      <DependentUpon>FooterValidate.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\HearderPageOnlyTitle.xaml.cs">
+      <DependentUpon>HearderPageOnlyTitle.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\MenuItem.xaml.cs">
+      <DependentUpon>MenuItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Localization\en-US.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Localization\fr-FR.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>fr-FR.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Controls\AccountInputSelect.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\ActivatorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\CheckedElement.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\FooterBack.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\FooterNavigation.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\FooterNext.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\HomeItem.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\ReleveView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\fr-FR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>fr-FR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

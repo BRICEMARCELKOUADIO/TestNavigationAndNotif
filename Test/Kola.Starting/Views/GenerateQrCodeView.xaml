@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:controls="clr-namespace:Kola.Infrastructure.Controls;assembly=Kola.Infrastructure"
+             xmlns:template="clr-namespace:Kola.Starting.Template"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:extension="clr-namespace:Kola.Infrastructure.Design;assembly=Kola.Infrastructure" 
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure"
+             BackgroundImageSource="{extension:ImageSource sc_background}"
+             x:Class="Kola.Starting.Views.GenerateQrCodeView">
+    <Grid Margin="0" Padding="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <controls:HearderPage Grid.Row="0" Title="scan_me" />
+            <controls:ReleveView Grid.Row="1" Margin="40,0,40,20" />
+            <Frame BackgroundColor="Transparent"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="3" Padding="0">
+                <StackLayout Padding="0" Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" Margin="0">
+                    <ScrollView VerticalScrollBarVisibility="Never" Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <StackLayout Grid.Row="0" Padding="0,0,0,10" Spacing="0" >
+                            <template:GenerateQrCodeContent/>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+            </Frame>
+            <controls:FooterBack Grid.Row="4" />
+        </Grid>
+        <controls:ActivatorView Grid.Row="0" IsVisible="{Binding IsLoading}"/>
+    </Grid>
+</ContentPage>

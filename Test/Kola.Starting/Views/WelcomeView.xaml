@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:extension="clr-namespace:Kola.Infrastructure.Design;assembly=Kola.Infrastructure"
+             x:Class="Kola.Starting.Views.WelcomeView">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*" />
+                <RowDefinition Height="4*" />
+            </Grid.RowDefinitions>
+            <Frame Padding="0" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0">
+                <Image  Source="{extension:ImageSource circle_big_like}" HorizontalOptions="Center" VerticalOptions="Center" 
+                        Aspect="AspectFit" />
+            </Frame>
+            <StackLayout Spacing="20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="1">
+                <Label Text="BIENVENU" HorizontalOptions="Center" FontSize="30" TextColor="{StaticResource color-secondary}" 
+                       FontAttributes="Bold" FontFamily="{StaticResource AssistantBold}" />
+                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod" HorizontalOptions="Center" HorizontalTextAlignment="Center" 
+                       FontSize="14" TextColor="{StaticResource color-third}" FontAttributes="Bold" FontFamily="{StaticResource AssistantRegular}" />
+                <ImageButton BackgroundColor="Transparent"  Source="{extension:ImageSource arrow_circle_right}" HorizontalOptions="Center"
+                             VerticalOptions="Center"  Aspect="AspectFit" Command="{Binding GotoPageCommand}" CommandParameter="Starting" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

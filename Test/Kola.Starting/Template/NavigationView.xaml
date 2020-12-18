@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             HorizontalOptions="FillAndExpand"
+             VerticalOptions="FillAndExpand"
+             x:Class="Kola.Starting.Template.NavigationView">
+    <ListView SeparatorColor="White"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              HasUnevenRows="true"
+              x:Name="ListViewMenu"
+              BackgroundColor="Black"
+              ItemsSource="{Binding NavigationMenuItems}"
+              SelectionMode="Single"
+              SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="5" Spacing="2" Orientation="Horizontal">
+                        <Label Margin="5,2" VerticalOptions="Center" Style="{Binding Icon, Converter={StaticResource ConvertIcon}}" FontSize="40" TextColor="Orange"/>
+                        <Label Text="{Binding Text, Converter={StaticResource TranslateConverter}}" FontSize="Default" VerticalOptions="Center" TextColor="Orange"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    
+</StackLayout>

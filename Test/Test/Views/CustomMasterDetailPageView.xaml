@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure"
+                  x:Class="Test.Views.CustomMasterDetailPageView">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Home" BackgroundColor="{StaticResource color-burger-background}" >
+            <StackLayout Spacing="30" BackgroundColor="{StaticResource color-burger-background}" Padding="10">
+                <Label Style="{StaticResource icon-list}" FontSize="20" TextColor="{StaticResource color-input-burger-second}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Burger_Click" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <ListView x:Name="LeftNavigation" 
+                          SeparatorColor="{StaticResource color-burger-separator}" 
+                          ItemsSource="{Binding NavigationMenuItems}"
+                          VerticalScrollBarVisibility="Never" 
+                          HorizontalScrollBarVisibility="Never"
+                          HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Margin="10,0" ColumnSpacing="15">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Path=BindingContext.NavigateCommand, Source={Reference LeftNavigation}}" CommandParameter="{Binding Url}" />
+                                    </Grid.GestureRecognizers>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" HorizontalTextAlignment="Center" VerticalOptions="Center" VerticalTextAlignment="Center"  Style="{Binding Icon, Converter={StaticResource ConvertIcon}}" FontSize="25" TextColor="{StaticResource color-burger-title}"/>
+                                    <Label Text="{Binding Text}" VerticalOptions="Center" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource color-burger-title}" Grid.Column="1"
+                                           FontFamily="{StaticResource OpenSansRegular}" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <StackLayout VerticalOptions="EndAndExpand" Margin="20,5">
+                    <Label TextColor="{StaticResource color-burger-title}" FontSize="11" VerticalTextAlignment="Center" HorizontalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="{localization:Translate appli_version_title}"/>
+                                    <Span Text=" " />
+                                    <Span Text="{Binding Version.Value}" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+</MasterDetailPage>

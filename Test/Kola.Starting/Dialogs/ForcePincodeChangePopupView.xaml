@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure"
+             CloseWhenBackgroundIsClicked="True"
+             x:Class="Kola.Starting.Dialogs.ForcePincodeChangePopupView">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <BoxView Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Opacity="0.6" BackgroundColor="{StaticResource color-third}" />
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="400"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout  Grid.Row="1"  BackgroundColor="Transparent" HorizontalOptions="Center" WidthRequest="400" Spacing="40">
+                <StackLayout Spacing="10">
+                    <ScrollView VerticalScrollBarVisibility="Never" Orientation="Vertical"  Margin="40,0">
+                        <Grid ColumnSpacing="10" RowSpacing="15">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <StackLayout Grid.Row="0" HorizontalOptions="FillAndExpand">
+                                <Label FontSize="12" Text="{localization:Translate old_pincode}" TextColor="{StaticResource color-fourth}" HorizontalOptions="Start"/>
+                                <Frame HasShadow="False" VerticalOptions="Center" Padding="10,0" CornerRadius="20" 
+                                    BackgroundColor="{StaticResource color-fourth}" >
+                                        <Entry ReturnType="Next" HorizontalOptions="FillAndExpand" Keyboard="Numeric" IsPassword="True" Text="{Binding OldPinCode.Value}" MaxLength="{Binding MaxLenthPinCode.Value}" VerticalOptions="Center" TextColor="{StaticResource color-input-text}" FontAttributes="None" 
+                            FontFamily="{StaticResource AssistantBold}" FontSize="20" />
+                                    </Frame>
+                                    <Label IsVisible="{Binding OldPinCode.HasError, Mode=TwoWay}" Text="{Binding OldPinCode.ErrorText}" 
+                           TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                           FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" HorizontalOptions="FillAndExpand">
+                                <Label  FontSize="12" Text="{localization:Translate new_pincode}" TextColor="{StaticResource color-fourth}" HorizontalOptions="Start"/>
+                                    <Frame HasShadow="False" VerticalOptions="Center" Padding="10,0" CornerRadius="20" 
+                        BackgroundColor="{StaticResource color-fourth}" >
+                                        <Entry ReturnType="Next" HorizontalOptions="FillAndExpand" Keyboard="Numeric" IsPassword="True" Text="{Binding NewPinCode.Value}" MaxLength="{Binding MaxLenthPinCode.Value}" VerticalOptions="Center" TextColor="{StaticResource color-input-text}" FontAttributes="None" 
+                       FontFamily="{StaticResource AssistantBold}" FontSize="20" />
+                                    </Frame>
+                                    <Label IsVisible="{Binding NewPinCode.HasError, Mode=TwoWay}" Text="{Binding NewPinCode.ErrorText}" 
+                           TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                           FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+                                </StackLayout>
+                                <StackLayout Grid.Row="2" HorizontalOptions="FillAndExpand">
+                                <Label  FontSize="12" Text="{localization:Translate confirm_new_pincode}" TextColor="{StaticResource color-fourth}" HorizontalOptions="Start"/>
+                                    <Frame HasShadow="False" VerticalOptions="Center" Padding="10,0" CornerRadius="20" 
+                        BackgroundColor="{StaticResource color-fourth}" >
+                                        <Entry ReturnType="Next" HorizontalOptions="FillAndExpand" Keyboard="Numeric" IsPassword="True" Text="{Binding ConfirmNewPinCode.Value}" MaxLength="{Binding MaxLenthPinCode.Value}" VerticalOptions="Center" TextColor="{StaticResource color-input-text}" FontAttributes="None" 
+                       FontFamily="{StaticResource AssistantBold}" FontSize="20" />
+                                    </Frame>
+                                    <Label IsVisible="{Binding ConfirmNewPinCode.HasError, Mode=TwoWay}" Text="{Binding ConfirmNewPinCode.ErrorText}" 
+                           TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                           FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+                            </StackLayout>
+                        </Grid>
+                    </ScrollView>
+                </StackLayout>
+                <StackLayout Spacing="20" Orientation="Horizontal" BackgroundColor="Transparent" HorizontalOptions="Center">
+                    <Button Text="{localization:Translate cancel}" Command="{Binding GotoCancelCommand}" BackgroundColor="{StaticResource color-buttom-cancel-background}" 
+                            FontSize="14" CornerRadius="15" WidthRequest="120" HeightRequest="45" BorderColor="{StaticResource color-buttom-cancel-border}"
+                            HorizontalOptions="Center"  TextColor="{StaticResource color-buttom-cancel-text}" 
+                            FontAttributes="Bold" FontFamily="{StaticResource OpenSansBold}"  />
+                    <Button Text="{localization:Translate validate}" BackgroundColor="{StaticResource color-buttom-next-background}" Command="{Binding GotoValidateCommand}" BorderColor="{StaticResource color-buttom-next-border}" 
+                            FontSize="14" CornerRadius="15" WidthRequest="120" HeightRequest="45" 
+                        HorizontalOptions="Center" FontFamily="{StaticResource OpenSansBold}" FontAttributes="Bold" TextColor="{StaticResource color-buttom-next-text}"  />
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</popup:PopupPage>

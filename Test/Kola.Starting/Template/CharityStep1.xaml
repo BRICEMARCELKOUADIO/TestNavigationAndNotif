@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure" xmlns:controls="clr-namespace:Kola.Infrastructure.Controls;assembly=Kola.Infrastructure"
+             Margin="40,0"
+             x:Class="Kola.Starting.Template.CharityStep1">
+
+    <StackLayout>
+        <ListView SelectionMode="None"  
+                  GroupDisplayBinding="{Binding OperationDate}"
+                  SeparatorVisibility="None"
+                  SeparatorColor="Transparent"         
+                  IsGroupingEnabled="True"  
+                  IsRefreshing="{Binding IsLoading}" 
+                  IsVisible="{Binding IsEmpty, Converter={StaticResource BooleanInverter}}"
+                  HasUnevenRows="True"
+                  ItemsSource="{Binding Items, Mode=TwoWay}" >
+            <ListView.Header>
+                <Label FontFamily="{StaticResource OpenSansRegular}"  Text="{localization:Translate my_donations}"
+                                           HorizontalTextAlignment="Center" 
+                                           VerticalTextAlignment="Center"  Margin="0,0,0,20"
+                                           FontSize="14"
+                                           TextColor="{StaticResource color-input-sub-menu-title}" />
+            </ListView.Header>
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell Height="45">
+                        <StackLayout>
+                            <Label Padding="0,10,0,0" Text="{Binding OperationDate}" TextColor="{StaticResource color-primary}" FontSize="13" VerticalOptions="Center" 
+                                   FontAttributes="Bold" FontFamily="{StaticResource OpenSansBold}" />
+                            <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource color-primary}" Opacity="0.1" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BorderColor="{StaticResource color-voucher-list-border}" HasShadow="False" Margin="20,5" Padding="5" CornerRadius="20">
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"  />
+                                    <ColumnDefinition Width="*"  />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Margin="5" Style="{StaticResource icon-charity}" FontSize="25" HorizontalOptions="Start" VerticalOptions="Center" />
+                                <Label Text="150"  Grid.Column="1" TextColor="{StaticResource color-voucher-list-body-amount}" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="{Binding Amount}" />
+                                                <Span Text=" " />
+                                                <Span Text="{Binding Currency}" />
+                                                <Span Text="  " />
+                                                <Span Text="{Binding Description}" />
+                                                <Span Text=" " />
+                                                <Span Text="{localization:Translate on}" />
+                                                <Span Text=" " />
+                                                <Span Text="{Binding OperationTime}" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <controls:Empty />
+
+        <Frame VerticalOptions="EndAndExpand" Margin="10" Padding="20,10" CornerRadius="20" HorizontalOptions="Center" BorderColor="{StaticResource color-voucher-add-border}" HasShadow="False">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding RegisterCharityCommand}" NumberOfTapsRequired="1" />
+            </Frame.GestureRecognizers>
+            <Label Text="{localization:Translate donate}"  HorizontalOptions="Center" VerticalOptions="Center" TextColor="{StaticResource color-voucher-add-text}" />
+        </Frame>
+
+    </StackLayout>
+    
+</ContentView>

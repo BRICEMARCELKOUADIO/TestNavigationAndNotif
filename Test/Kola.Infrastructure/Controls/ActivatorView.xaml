@@ -1,0 +1,26 @@
+﻿<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                x:Class="Kola.Infrastructure.Controls.ActivatorView">
+    <StackLayout Opacity="0.8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black">
+        <Grid x:Name="loading" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Margin="0" Padding="0" CornerRadius="20" WidthRequest="20" HeightRequest="20" BackgroundColor="{StaticResource color-loading-primary}" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="0" Grid.Column="1"/>
+            <Button Margin="0" Padding="0" CornerRadius="20" WidthRequest="20" HeightRequest="20" BackgroundColor="{StaticResource color-loading-secondary}" HorizontalOptions="End" VerticalOptions="Center" Grid.Row="1" Grid.Column="0"/>
+            <Button Margin="0" Padding="0" CornerRadius="20" WidthRequest="20" HeightRequest="20" BackgroundColor="{StaticResource color-loading-secondary}" HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="1" Grid.Column="2"/>
+            <Button Margin="0" Padding="0" CornerRadius="20" WidthRequest="20" HeightRequest="20" BackgroundColor="{StaticResource color-loading-primary}" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="2" Grid.Column="1"/>
+        </Grid>
+    </StackLayout>
+</StackLayout>   
+    

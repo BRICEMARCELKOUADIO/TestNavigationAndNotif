@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure" xmlns:controls="clr-namespace:Kola.Infrastructure.Controls;assembly=Kola.Infrastructure"
+             Margin="40,0"
+             x:Class="Kola.Starting.Template.SiginUpStep2">
+    <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+        <StackLayout Padding="0" Spacing="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="12" Text="{localization:Translate choose_title}" 
+                       TextColor="{StaticResource color-input-label}" HorizontalOptions="Start"/>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-dropdown-border}" HeightRequest="43" VerticalOptions="Center" 
+                       Grid.Row="1" Padding="10,0" CornerRadius="20" 
+                    BackgroundColor="{StaticResource color-dropdown-background}" >
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OnOpenGenderPopupCommand}" NumberOfTapsRequired="1" />
+                    </Frame.GestureRecognizers>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label HorizontalOptions="FillAndExpand" Text="{Binding Gender.Value}" VerticalOptions="Center" TextColor="{StaticResource color-dropdown-text}" 
+                            FontFamily="{StaticResource AssistantBold}" Grid.Column="0" FontSize="16" />
+                        <Label VerticalOptions="End" HorizontalOptions="Center" Grid.Column="1" Style="{StaticResource icon-cheveron-down}" 
+                          TextColor="{StaticResource color-dropdown-text}" FontSize="20" />
+                    </Grid>
+                </Frame>
+                <Label Grid.Row="2" IsVisible="{Binding Gender.HasError, Mode=TwoWay}" Text="{Binding Gender.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="12" TextColor="{StaticResource color-input-label}" HorizontalOptions="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{localization:Translate first_name}"/>
+                                <Span Text=" *" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-input-border}" VerticalOptions="Center" Grid.Row="1" Padding="10,0" CornerRadius="20" 
+               BackgroundColor="{StaticResource color-input-background}" >
+                    <Entry ReturnType="Next" HorizontalOptions="FillAndExpand" x:Name="FirstName" Text="{Binding FirstName.Value}" MaxLength="100" VerticalOptions="Center" TextColor="{StaticResource color-input-text}" FontAttributes="None" 
+                   FontFamily="{StaticResource AssistantBold}" FontSize="16" >
+                        <Entry.Behaviors>
+                            <controls:UpperEntryBehavior/>
+                        </Entry.Behaviors>
+                    </Entry>
+                </Frame>
+                <Label Grid.Row="2" IsVisible="{Binding FirstName.HasError, Mode=TwoWay}" Text="{Binding FirstName.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="12" TextColor="{StaticResource color-input-label}" HorizontalOptions="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{localization:Translate last_name}"/>
+                                <Span Text=" *" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-input-border}" VerticalOptions="Center" Grid.Row="1" Padding="10,0" CornerRadius="20" 
+               BackgroundColor="{StaticResource color-input-background}" >
+                    <Entry ReturnType="Next" HorizontalOptions="FillAndExpand" x:Name="LastName" Text="{Binding LastName.Value}" MaxLength="100" VerticalOptions="Center" TextColor="{StaticResource color-input-text}" FontAttributes="None" 
+                   FontFamily="{StaticResource AssistantBold}" FontSize="16" >
+                        <Entry.Behaviors>
+                            <controls:UpperEntryBehavior/>
+                        </Entry.Behaviors>
+                    </Entry>
+                </Frame>
+                <Label Grid.Row="2" IsVisible="{Binding LastName.HasError, Mode=TwoWay}" Text="{Binding LastName.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="12" TextColor="{StaticResource color-input-label}" HorizontalOptions="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{localization:Translate email}"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-input-border}" VerticalOptions="Center" Grid.Row="1" Padding="10,0" CornerRadius="20" 
+                    BackgroundColor="{StaticResource color-input-background}" >
+                    <Entry ReturnType="Next" HorizontalOptions="FillAndExpand" Text="{Binding Email.Value}" MaxLength="100" VerticalOptions="Center" Keyboard="Email" TextColor="{StaticResource color-input-text}" FontAttributes="None" 
+                   FontFamily="{StaticResource AssistantBold}" FontSize="16" />
+                </Frame>
+                <Label Grid.Row="2" IsVisible="{Binding Email.HasError, Mode=TwoWay}" Text="{Binding Email.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentView>

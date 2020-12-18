@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure" 
+             xmlns:controls="clr-namespace:Kola.Infrastructure.Controls;assembly=Kola.Infrastructure"
+             Margin="40,0"
+             x:Class="Kola.Starting.Template.CharityStep2">
+    <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+        <StackLayout Padding="0" Spacing="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="12"
+                       TextColor="{StaticResource color-input-label}" HorizontalOptions="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{localization:Translate organizations}"/>
+                                <Span Text=" *"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-dropdown-border}" HeightRequest="43" VerticalOptions="Center" 
+                       Grid.Row="1" Padding="10,0" CornerRadius="20" 
+                    BackgroundColor="{StaticResource color-dropdown-background}" >
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OnOpenOrganizationPopupCommand}" NumberOfTapsRequired="1" />
+                    </Frame.GestureRecognizers>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label HorizontalOptions="FillAndExpand" Text="{Binding Organization.Value}" VerticalOptions="Center" TextColor="{StaticResource color-dropdown-text}" 
+                            FontFamily="{StaticResource AssistantBold}" Grid.Column="0" FontSize="16" />
+                        <Label VerticalOptions="End" HorizontalOptions="Center" Grid.Column="1" Style="{StaticResource icon-cheveron-down}" 
+                          TextColor="{StaticResource color-dropdown-text}" FontSize="20" />
+                    </Grid>
+                </Frame>
+                <Label Grid.Row="2" IsVisible="{Binding Organization.HasError, Mode=TwoWay}" Text="{Binding Organization.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="12" TextColor="{StaticResource color-input-label}" HorizontalOptions="End">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{localization:Translate amount}"/>
+                            <Span Text=" *"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-input-border}" VerticalOptions="Center" Grid.Row="1" Padding="10,0" CornerRadius="20" 
+                    BackgroundColor="{StaticResource color-input-background}" >
+                    <Entry ReturnType="Next" HorizontalOptions="FillAndExpand" Text="{Binding Amount.Value}" MaxLength="{Binding AmountMaxLength.Value}" Keyboard="Numeric" VerticalOptions="Center"  TextColor="{StaticResource color-input-text}" FontAttributes="None" 
+                   FontFamily="{StaticResource AssistantBold}" FontSize="16" >
+                        <Entry.Behaviors>
+                            <controls:NumericEntryBehavior/>
+                        </Entry.Behaviors>
+                    </Entry>
+                </Frame>
+                <Label Grid.Row="2" IsVisible="{Binding Amount.HasError, Mode=TwoWay}" Text="{Binding Amount.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+            <controls:AccountInputSelect />
+
+            <Frame HasShadow="False" Padding="0" CornerRadius="20" WidthRequest="130" HorizontalOptions="Center" HeightRequest="45" 
+                       BackgroundColor="{StaticResource color-buttom-next-background}" BorderColor="{StaticResource color-buttom-next-border}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding GotoValidateCommand}"/>
+                </Frame.GestureRecognizers>
+                <Label Text="{localization:Translate validate}" FontFamily="{StaticResource OpenSansRegular}" FontSize="11" FontAttributes="Bold" 
+                           TextColor="{StaticResource color-buttom-next-text}" HorizontalOptions="Center" VerticalOptions="Center" />
+            </Frame>
+            
+        </StackLayout>
+    </ScrollView>
+</ContentView>

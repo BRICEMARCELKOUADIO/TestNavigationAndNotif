@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Margin="40,0"
+             VerticalOptions="FillAndExpand"
+             HorizontalOptions="FillAndExpand"
+              xmlns:controls="clr-namespace:Kola.Infrastructure.Controls;assembly=Kola.Infrastructure"
+             xmlns:extension="clr-namespace:Kola.Infrastructure.Design;assembly=Kola.Infrastructure"
+             x:Class="Kola.Starting.Template.OthersBodyContent">
+    <CollectionView ItemSizingStrategy="MeasureAllItems"  x:Name="subItemContent" ItemsSource="{Binding Items}" >
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Vertical" Span="2"/>
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <controls:MenuItem>
+                    <controls:MenuItem.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Path=BindingContext.GotoPageCommand, Source={x:Reference subItemContent}}" CommandParameter="{Binding Url}" />
+                    </controls:MenuItem.GestureRecognizers>
+                </controls:MenuItem>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentView>

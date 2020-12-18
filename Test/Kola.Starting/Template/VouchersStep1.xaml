@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure" 
+             xmlns:controls="clr-namespace:Kola.Infrastructure.Controls;assembly=Kola.Infrastructure"
+             Margin="40,0"
+             x:Name="subItemContent"
+             x:Class="Kola.Starting.Template.VouchersStep1">
+
+    <Grid Margin="0" Padding="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Row="0" FontFamily="{StaticResource OpenSansRegular}"  Text="{localization:Translate my_vouchers}"
+                                           HorizontalTextAlignment="Center" 
+                                           VerticalTextAlignment="Center"  Margin="0,0,0,20"
+                                           FontSize="14"
+                                           TextColor="{StaticResource color-input-sub-menu-title}" />
+
+        <ListView Grid.Row="1"  
+                  SelectionMode="None" 
+                  HasUnevenRows="True" 
+                  IsVisible="{Binding IsEmpty, Converter={StaticResource BooleanInverter}}"
+                  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                  SeparatorVisibility="None" 
+                  ItemsSource="{Binding Items}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BorderColor="{StaticResource color-voucher-list-border}" HasShadow="False"  Margin="20,5" Padding="5" CornerRadius="20">
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"  />
+                                    <ColumnDefinition Width="Auto"  />
+                                    <ColumnDefinition Width="*"  />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Margin="5" Style="{StaticResource icon-voucher}" FontSize="25" HorizontalOptions="Start" VerticalOptions="Center" />
+                                <Label Grid.Column="1" TextColor="{StaticResource color-voucher-list-body-amount}" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="{Binding Currency}"/>
+                                                <Span Text=" " />
+                                                <Span Text="{Binding Amount}" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Frame BackgroundColor="{StaticResource color-voucher-list-body-btn-use-background}" Padding="0" WidthRequest="75" HeightRequest="27"
+                                       CornerRadius="15" Grid.Column="2" HorizontalOptions="End" VerticalOptions="Center" >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.DisplayQrCodeCommand, Source={x:Reference subItemContent}}" CommandParameter="{Binding .}" />
+                                    </Frame.GestureRecognizers>
+                                    <Label Text="{localization:Translate use}"  HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" />
+                                </Frame>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <controls:Empty Grid.Row="1" />
+
+        <Frame Grid.Row="2" VerticalOptions="EndAndExpand" Margin="10" Padding="20,10" CornerRadius="20" HorizontalOptions="Center" BorderColor="{StaticResource color-voucher-add-border}" HasShadow="False">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding RegisterVoucherCommand}" NumberOfTapsRequired="1" />
+            </Frame.GestureRecognizers>
+            <Label Text="{localization:Translate register_a_voucher}"  HorizontalOptions="Center" VerticalOptions="Center" TextColor="{StaticResource color-voucher-add-text}" />
+        </Frame>
+        
+    </Grid>
+    
+</ContentView>

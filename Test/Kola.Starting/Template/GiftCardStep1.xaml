@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure"
+             Margin="40,0"
+             x:Name="subItemContent"
+             x:Class="Kola.Starting.Template.GiftCardStep1">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="0" SelectionMode="None" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding Items}" >
+            <ListView.Header>
+                <Label FontFamily="{StaticResource OpenSansRegular}"  Text="{localization:Translate gift_cards}"
+                                           HorizontalTextAlignment="Center" 
+                                           VerticalTextAlignment="Center"  Margin="0,0,0,20"
+                                           FontSize="14"
+                                           TextColor="{StaticResource color-input-sub-menu-title}" />
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BorderColor="{StaticResource color-voucher-list-border}" HasShadow="False"  Margin="20,5" Padding="5" CornerRadius="20">
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"  />
+                                    <ColumnDefinition Width="Auto"  />
+                                    <ColumnDefinition Width="*"  />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Margin="5" Style="{StaticResource icon-gift_card}" FontSize="25" HorizontalOptions="Start" VerticalOptions="Center" />
+                                <Label Text="150"  Grid.Column="1" TextColor="{StaticResource color-voucher-list-body-amount}" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="{Binding Amount}" />
+                                                <Span Text=" " />
+                                                <Span Text="{Binding Currency}" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Frame BackgroundColor="{StaticResource color-voucher-list-body-btn-use-background}" Padding="0" WidthRequest="75" HeightRequest="27" CornerRadius="15" Grid.Column="2" HorizontalOptions="End" VerticalOptions="Center" >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.DisplayQrCodeCommand, Source={x:Reference subItemContent}}" CommandParameter="{Binding .}" />
+                                    </Frame.GestureRecognizers>
+                                    <Label Text="{localization:Translate see}"  HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" />
+                                </Frame>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Grid Grid.Row="1" ColumnSpacing="20" Margin="20,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Frame Grid.Column="0" CornerRadius="15"   BackgroundColor="{StaticResource color-buttom-next-background}" 
+                   BorderColor="{StaticResource color-buttom-next-border}" HasShadow="False">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GotoCreateGiftCardCommand}" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <Label Text="{localization:Translate create_gift_card}" HorizontalTextAlignment="Center"  HorizontalOptions="Center" FontFamily="{StaticResource OpenSansRegular}" FontSize="11" FontAttributes="Bold"
+                       VerticalOptions="Center" TextColor="{StaticResource color-buttom-next-text}" />
+            </Frame>
+
+            <!--<Frame Grid.Column="1" Padding="0"  CornerRadius="15"  BackgroundColor="{StaticResource color-buttom-next-background}" 
+                   BorderColor="{StaticResource color-buttom-next-border}" HasShadow="False">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GotoAddGiftCardCommand}" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <Label Text="{localization:Translate add_gift_card}" HorizontalTextAlignment="Center"  HorizontalOptions="Center" FontFamily="{StaticResource OpenSansRegular}" FontSize="11" FontAttributes="Bold"
+                       VerticalOptions="Center" TextColor="{StaticResource color-buttom-next-text}" />
+            </Frame>-->
+        </Grid>
+    </Grid>
+</ContentView>

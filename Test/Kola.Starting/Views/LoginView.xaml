@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="false"
+             BackgroundColor="{StaticResource color-background-page}"
+             xmlns:extension="clr-namespace:Kola.Infrastructure.Design;assembly=Kola.Infrastructure"
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure" 
+             xmlns:controls="clr-namespace:Kola.Infrastructure.Controls;assembly=Kola.Infrastructure"
+             x:Class="Kola.Starting.Views.LoginView">
+    <ContentPage.Content>
+        <Grid Margin="0" Padding="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <ScrollView VerticalScrollBarVisibility="Never">
+                    <Grid Margin="0,0,0,10" RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Margin="10,0" Style="{StaticResource icon-cheveron-left}" TextColor="{StaticResource color-fourth}" FontSize="40" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GotoBackCommand}" NumberOfTapsRequired="1"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Image Source="{extension:ImageSource login_logo}" Grid.Row="1" HorizontalOptions="Center" HeightRequest="63" WidthRequest="250"  Aspect="AspectFit" />
+                        <Frame BackgroundColor="Transparent"  HorizontalOptions="FillAndExpand" Padding="0" Grid.Row="2" VerticalOptions="FillAndExpand">
+                            <Frame Padding="0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent" BorderColor="Transparent" >
+                                <StackLayout Spacing="25" HorizontalOptions="FillAndExpand">
+                                    <Label Text="{localization:Translate login_welcome}" TextColor="{StaticResource color-input-login-title}" FontSize="20" 
+                                           FontFamily="{StaticResource OpenSansBold}" FontAttributes="Bold"  HorizontalTextAlignment="Center" />
+                                    <Grid HorizontalOptions="Center" RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30" />
+                                            <ColumnDefinition Width="180" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="{extension:ImageSource liberia}" Grid.Row="0" Grid.Column="0" HeightRequest="20" VerticalOptions="Center"  />
+
+                                        <Entry ReturnType="Next" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Start" VerticalOptions="End" FontSize="20" FontFamily="{StaticResource OpenSansBold}" 
+                                            FontAttributes="Bold" Keyboard="Numeric" TextColor="{StaticResource color-input-login-label}" Text="{Binding PhoneNumber.Value}" MaxLength="{Binding PhoneNumberLength.Value}" />
+                                        <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Opacity="0.3" HeightRequest="1"  VerticalOptions="Start" 
+                                            BackgroundColor="{StaticResource color-bar-login-background}" />
+                                        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
+                                               IsVisible="{Binding PhoneNumber.HasError, Mode=TwoWay}" Text="{Binding PhoneNumber.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+                                    </Grid>
+
+                                    <StackLayout Spacing="5" Orientation="Horizontal">
+                                        <CheckBox IsChecked="{Binding IsRemember.Value}" Color="{StaticResource color-remember_me_login}" VerticalOptions="Center" />
+                                        <Label FontSize="15" Text="{localization:Translate remember_me}" VerticalOptions="Center" TextColor="{StaticResource color-input-label}" HorizontalOptions="Start"/>
+                                    </StackLayout>
+
+                                    <Frame HasShadow="False" Padding="0" CornerRadius="50" WidthRequest="176" HorizontalOptions="Center" HeightRequest="59" 
+                                           BackgroundColor="{StaticResource color-buttom-next-login-background}" BorderColor="{StaticResource color-buttom-next-login-border}">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding GotoNextCommand}" />
+                                        </Frame.GestureRecognizers>
+                                        <Label Text="{Binding NextText.Value, Converter={StaticResource TranslateUpperInvariantConverter}}" FontFamily="{StaticResource OpenSansRegular}" FontAttributes="Bold" FontSize="18" 
+                                               TextColor="{StaticResource color-buttom-next-login-label}" HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Frame>
+                                    <Label IsVisible="{Binding Message.HasError, Mode=TwoWay}" Text="{Binding Message.ErrorText}" 
+                                           TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                           FontFamily="{StaticResource OpenSansRegular}" FontSize="13" VerticalOptions="Center" />
+                                </StackLayout>
+                            </Frame>
+
+                        </Frame>
+                        <StackLayout  Grid.Row="3" HorizontalOptions="Center" Spacing="20">
+                            <StackLayout HorizontalOptions="Center" IsEnabled="{Binding FingerPrintAvailable.Value}" >
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GotoFingerPrintCommand}"/>
+                                </StackLayout.GestureRecognizers>
+                                <Label Style="{StaticResource icon-login_fingerprint}" HorizontalOptions="Center" TextColor="{StaticResource color-buttom-fingerprint}" FontSize="90" />
+                                <Label Text="Use fingerprint instead" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="{StaticResource OpenSansRegular}" FontSize="13" TextColor="{StaticResource color-buttom-fingerprint-label}" />
+                            </StackLayout>
+                            <Frame HasShadow="False" HeightRequest="50" WidthRequest="250" Padding="0" CornerRadius="50" HorizontalOptions="Center" 
+                        BackgroundColor="{StaticResource color-buttom-login-create-background}" BorderColor="{StaticResource color-buttom-login-create-border}" >
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding GotoPageCommand}" CommandParameter="SiginUp"/>
+                                </Frame.GestureRecognizers>
+                                <Label HorizontalOptions="Center" FontFamily="{StaticResource OpenSansRegular}" FontAttributes="Bold" FontSize="12" VerticalOptions="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{localization:Translate dont_have_an_account}" TextColor="{StaticResource color-buttom-login-create-label}" />
+                                            <Span Text="{localization:Translate sign_up}" TextColor="{StaticResource color-buttom-login-create-label-second}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </Frame>
+                        </StackLayout>
+
+                    </Grid>
+                </ScrollView>
+            </Grid>
+            <controls:ActivatorView Grid.Row="0" IsVisible="{Binding IsLoading}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

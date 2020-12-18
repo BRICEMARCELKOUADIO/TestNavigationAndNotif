@@ -11,13 +11,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Plugin.FirebasePushNotification" Version="3.3.10" />
-    <PackageReference Include="Prism.Unity.Forms" Version="8.0.0.1909" />
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Plugin.FirebasePushNotification" Version="3.3.16-beta" />
+    <PackageReference Include="Prism.DryIoc.Forms" Version="8.0.0.1909" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1791-pre5" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.0-rc1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Kola.Infrastructure\Kola.Infrastructure.csproj" />
+    <ProjectReference Include="..\Kola.Starting\Kola.Starting.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\CustomMasterDetailPageView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\HomeView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

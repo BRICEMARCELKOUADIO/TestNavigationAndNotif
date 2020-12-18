@@ -1,9 +1,89 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"              
+             xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
              x:Class="Test.App">
+    <!--xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"-->
     <Application.Resources>
+        <!--Converters--><!--
+        <converters:TranslateConverter x:Key="TranslateConverter" />
+        <converters:TranslateUpperInvariantConverter x:Key="TranslateUpperInvariantConverter" />
+        <converters:ConvertIcon x:Key="ConvertIcon" />
+        <converters:ConvertImage x:Key="ConvertImage" />
+        <converters:BooleanInverter x:Key="BooleanInverter" />
+        <converters:DateToStringConverter x:Key="DateToString"/>
+        <converters:StringToDateConverter x:Key="StringToDate"/>
+        <converters:DateFullToDisplayConverter x:Key="DateFullToDisplay"/>
+        <converters:HourMinuteToStringConverter x:Key="HourMinuteToString"/>
+        <converters:MinuteToDurationConverter x:Key="MinuteToDuration"/>
+        <converters:EscaleConverter x:Key="Escale"/>
+        <converters:PassengersConvert x:Key="Passenger"/>
+        <converters:MultiTriggerConverter x:Key="DataHasBeenEnteredTrigger"/>
+        <converters:MultiTriggerForChekedConverter x:Key="InputHasBeenCheckedCheckedTrigger"/>
 
+        --><!-- Application resource dictionary -->
+
+        <!--Font to Icon--><!--
+        <Style x:Key="IconFont" TargetType="Label">
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Kola.ttf#icomoon" />
+                        <On Platform="iOS" Value="Kola.ttf#icomoon" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="IconBtnFont" TargetType="Button">
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Kola.ttf#icomoon" />
+                        <On Platform="iOS" Value="Kola.ttf#icomoon" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <OnPlatform x:TypeArguments="x:String" x:Key="RalewayRegular">
+            <On Platform="iOS" Value="Raleway-Regular.ttf"/>
+            <On Platform="Android" Value="Raleway-Regular.ttf#Regular"/>
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="x:String" x:Key="RalewayBold">
+            <On Platform="iOS" Value="Raleway-Regular.ttf"/>
+            <On Platform="Android" Value="Raleway-Bold.ttf#Bold"/>
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="x:String" x:Key="AssistantRegular">
+            <On Platform="iOS" Value="Assistant-Regular.ttf"/>
+            <On Platform="Android" Value="Assistant-Regular.ttf#Assistant-Regular"/>
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="x:String" x:Key="AssistantBold">
+            <On Platform="iOS" Value="Assistant-Bold.ttf"/>
+            <On Platform="Android" Value="Assistant-Bold.ttff#Assistant-Bold"/>
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="x:String" x:Key="OpenSansBoldItalic">
+            <On Platform="iOS" Value="OpenSans-BoldItalic.ttf"/>
+            <On Platform="Android" Value="OpenSans-BoldItalic.ttff#OpenSans-BoldItalic"/>
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="x:String" x:Key="OpenSansBold">
+            <On Platform="iOS" Value="OpenSans-Bold.ttf"/>
+            <On Platform="Android" Value="OpenSans-Bold.ttff#OpenSans-Bold"/>
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="x:String" x:Key="OpenSansRegular">
+            <On Platform="iOS" Value="OpenSans-Regular.ttf"/>
+            <On Platform="Android" Value="OpenSans-Regular.ttff#OpenSans-Regular"/>
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="x:String" x:Key="OpenSansItalic">
+            <On Platform="iOS" Value="OpenSans-Italic.ttf"/>
+            <On Platform="Android" Value="OpenSans-Italic#OpenSans-Italic"/>
+        </OnPlatform>-->
     </Application.Resources>
 </prism:PrismApplication>

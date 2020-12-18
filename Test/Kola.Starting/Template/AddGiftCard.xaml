@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure" xmlns:controls="clr-namespace:Kola.Infrastructure.Controls;assembly=Kola.Infrastructure"
+             Margin="40,0"
+             x:Class="Kola.Starting.Template.AddGiftCard">
+    <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+        <Frame Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="30" >
+                <Label FontFamily="{StaticResource OpenSansRegular}" Text="{localization:Translate enter_gift_card_number}"
+                                           HorizontalTextAlignment="Center" 
+                                           VerticalTextAlignment="Center" 
+                                           FontSize="14"
+                                           TextColor="{StaticResource color-input-sub-menu-title}" />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Frame HasShadow="False" BorderColor="{StaticResource color-input-border}" HorizontalOptions="Center" WidthRequest="250" VerticalOptions="Center" Grid.Row="1" Padding="10,0" CornerRadius="20" 
+                             BackgroundColor="{StaticResource color-input-background}" >
+                        <Entry ReturnType="Next" HorizontalOptions="FillAndExpand" Text="{Binding GiftCardNumber.Value, Mode=TwoWay}" MaxLength="100" VerticalOptions="Center" TextColor="{StaticResource color-input-text}" FontAttributes="None" 
+                             FontFamily="{StaticResource AssistantBold}" FontSize="16" >
+                            <Entry.Behaviors>
+                                <controls:UpperEntryBehavior/>
+                            </Entry.Behaviors>
+                        </Entry>
+                    </Frame>
+                    <Label Grid.Row="2" IsVisible="{Binding GiftCardNumber.HasError, Mode=TwoWay}" Text="{Binding GiftCardNumber.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+                </Grid>
+
+                <Frame HasShadow="False" Padding="0" CornerRadius="20" WidthRequest="130" HorizontalOptions="Center" HeightRequest="45" 
+                       BackgroundColor="{StaticResource color-buttom-next-background}" BorderColor="{StaticResource color-buttom-next-border}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding AddGiftCardCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Label Text="{localization:Translate validate}" FontFamily="{StaticResource OpenSansRegular}" FontSize="11" FontAttributes="Bold" 
+                           TextColor="{StaticResource color-buttom-next-text}" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Frame>
+            </StackLayout>
+        </Frame>
+    </ScrollView>
+</ContentView>

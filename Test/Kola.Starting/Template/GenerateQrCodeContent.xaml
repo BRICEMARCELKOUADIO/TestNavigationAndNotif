@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure"
+             Margin="40,0"
+             x:Class="Kola.Starting.Template.GenerateQrCodeContent">
+        <StackLayout>
+        <Label FontFamily="{StaticResource OpenSansRegular}"
+                                           HorizontalTextAlignment="Center" 
+                                           VerticalTextAlignment="Center"  Margin="0,0,0,10"
+                                           FontSize="16" FontAttributes="Bold"
+                                           TextColor="{StaticResource color-primary}" >
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="{Binding TitleQrCode.Value}" />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>       
+            
+        <Frame CornerRadius="10" BorderColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"  Padding="5,10">            
+            <Image Source="{Binding QrCodeImage, Mode=TwoWay}" HorizontalOptions="Center" WidthRequest="300" HeightRequest="300" VerticalOptions="Center" />             
+        </Frame>
+
+        <StackLayout HorizontalOptions="Center" Spacing="10" Orientation="Horizontal">
+            <Label FontFamily="{StaticResource OpenSansRegular}" Text="{Binding Code1.Value}"
+                                           HorizontalTextAlignment="Center" 
+                                           VerticalTextAlignment="Center"
+                                           FontSize="16" FontAttributes="Bold"
+                                           TextColor="{StaticResource color-input-sub-menu-title}" />
+        </StackLayout>
+            
+        <StackLayout HorizontalOptions="Center" Spacing="10" Orientation="Horizontal">            
+            <Label FontFamily="{StaticResource OpenSansRegular}" 
+                                           HorizontalTextAlignment="Center" 
+                                           VerticalTextAlignment="Center"
+                                           FontSize="15"
+                                           TextColor="{StaticResource color-input-sub-menu-title}" >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="{Binding Code2.Value}" />
+                            <Span Text=" " />
+                            <Span Text="{Binding Currency.Value}" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>           
+        </StackLayout>
+
+        <StackLayout HorizontalOptions="Center" Spacing="10" Orientation="Horizontal">
+            <Label FontFamily="{StaticResource OpenSansRegular}" 
+                                           HorizontalTextAlignment="Center" 
+                                           VerticalTextAlignment="Center"
+                                           FontSize="16"
+                                           TextColor="{StaticResource color-input-sub-menu-title}" >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="{Binding CompanyName.Value}" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+
+    </StackLayout>
+</ContentView>

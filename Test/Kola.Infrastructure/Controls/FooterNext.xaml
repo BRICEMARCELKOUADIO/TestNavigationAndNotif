@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:extension="clr-namespace:Kola.Infrastructure.Design;assembly=Kola.Infrastructure"
+             x:Class="Kola.Infrastructure.Controls.FooterNext">
+    <StackLayout HorizontalOptions="Center" Spacing="5">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20" >
+            <Frame HasShadow="False" Padding="0" CornerRadius="20" WidthRequest="130" HorizontalOptions="Center" HeightRequest="45" 
+                       BackgroundColor="{StaticResource color-buttom-cancel-background}" BorderColor="{StaticResource color-buttom-cancel-border}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding GotoCancelCommand}"/>
+                </Frame.GestureRecognizers>
+                <Label Text="CANCEL" FontFamily="{StaticResource OpenSansRegular}" FontSize="11" FontAttributes="Bold" 
+                           TextColor="{StaticResource color-buttom-cancel-text}" HorizontalOptions="Center" VerticalOptions="Center" />
+            </Frame>
+            <Frame HasShadow="False" Padding="0" CornerRadius="20" WidthRequest="130" HorizontalOptions="Center" HeightRequest="45" 
+                       BackgroundColor="{StaticResource color-buttom-next-background}" BorderColor="{StaticResource color-buttom-next-border}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding GotoNextCommand}"/>
+                </Frame.GestureRecognizers>
+                <Label Text="NEXT" FontFamily="{StaticResource OpenSansRegular}" FontSize="11" FontAttributes="Bold" 
+                           TextColor="{StaticResource color-buttom-next-text}" HorizontalOptions="Center" VerticalOptions="Center" />
+            </Frame>
+        </StackLayout>
+        <Image  Source="{extension:ImageSource sc_logo}" HorizontalOptions="Center" HeightRequest="45" WidthRequest="45" Aspect="AspectFit" />
+    </StackLayout>
+</ContentView>

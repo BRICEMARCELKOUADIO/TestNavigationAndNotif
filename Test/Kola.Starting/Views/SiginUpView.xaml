@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:controls="clr-namespace:Kola.Infrastructure.Controls;assembly=Kola.Infrastructure"
+             xmlns:template="clr-namespace:Kola.Starting.Template"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:converter="clr-namespace:Kola.Infrastructure.Converter;assembly=Kola.Infrastructure"
+             xmlns:extension="clr-namespace:Kola.Infrastructure.Design;assembly=Kola.Infrastructure"
+             BackgroundImageSource="{extension:ImageSource sc_background}"
+             x:Class="Kola.Starting.Views.SiginUpView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:BooleanInverter x:Key="invert"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid Margin="0" Padding="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <!--<controls:HearderPage Grid.Row="0" Title="ENROLLEMENT" />-->
+            <Image Grid.Row="0" Margin="0,65,0,20"  Source="{extension:ImageSource login_logo}" Aspect="AspectFit" HeightRequest="50" WidthRequest="220"  
+           VerticalOptions="Center"  HorizontalOptions="Center" />
+            <!-- <controls:ReleveView Grid.Row="1" Margin="40,0,40,10" />-->
+            <controls:StepBar Margin="0,65,0,25" HorizontalOptions="Center" Grid.Row="2" StepsTotal="{Binding TotalStep.Value}" StepCurrent="{Binding CurrentStep.Value}" 
+                          StepTextColor="{StaticResource color-fourth}" StepColor="{StaticResource color-primary}" StepTextColorNotActive="{StaticResource color-fourth}"
+                          StepColorNotActive="{StaticResource color-step-background-notselect}" />
+            <Frame BackgroundColor="Transparent"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="3" Padding="0">
+                <StackLayout Padding="0" Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" Margin="0">
+                    <ScrollView VerticalScrollBarVisibility="Never" Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <StackLayout Grid.Row="0" Padding="0,0,0,10" Spacing="0" >
+                            <!--list items-->
+                            <template:SiginUpStep1 IsEnabled="{Binding FirstStep.Value}" IsVisible="{Binding FirstStep.Value}" />
+                            <template:SiginUpStep2 IsEnabled="{Binding SecondStep.Value}" IsVisible="{Binding SecondStep.Value}" />
+                            <template:SiginUpStep3 IsEnabled="{Binding ThirdStep.Value}" IsVisible="{Binding ThirdStep.Value}" />
+                            <template:SiginUpStep4 IsEnabled="{Binding FourthStep.Value}" IsVisible="{Binding FourthStep.Value}" />
+                            <template:SiginUpStep5 IsEnabled="{Binding FifthStep.Value}" IsVisible="{Binding FifthStep.Value}" />
+                            <template:SiginUpStep6 IsEnabled="{Binding SixthStep.Value}" IsVisible="{Binding SixthStep.Value}" />
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+            </Frame>
+            <controls:FooterPreviousNext Grid.Row="4" IsEnabled="{Binding IsTakePicture.Value}" IsVisible="{Binding IsTakePicture.Value}" />
+            <controls:FooterBack Grid.Row="4" IsEnabled="{Binding IsTakePicture.Value, Converter={StaticResource invert}}"
+                             IsVisible="{Binding IsTakePicture.Value, Converter={StaticResource invert}}"/>
+        </Grid>
+        <controls:ActivatorView Grid.Row="0" IsVisible="{Binding IsLoading}"/>
+    </Grid>
+</ContentPage>

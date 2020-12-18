@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Margin="20" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:extension="clr-namespace:Kola.Infrastructure.Design;assembly=Kola.Infrastructure"
+             x:Class="Kola.Starting.Template.HomeHeaderContent">
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="Auto"/>
+    </Grid.ColumnDefinitions>
+    <Label Grid.Column="0" Style="{StaticResource icon-list}" TextColor="{StaticResource color-input-burger}" FontSize="20" VerticalOptions="Center" HorizontalOptions="Start">
+        <Label.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding DisplayBurger}" />
+        </Label.GestureRecognizers>
+    </Label>
+    <Image Grid.Column="1" Source="{extension:ImageSource login_logo}" Aspect="AspectFit"  VerticalOptions="Center" HeightRequest="40" WidthRequest="161" HorizontalOptions="Center" />
+    <Label Grid.Column="2" Style="{StaticResource icon-stand-by}" TextColor="{StaticResource color-input-burger}" FontSize="20" VerticalOptions="Center" HorizontalOptions="End" >
+        <Label.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding GotoPageCommand}" CommandParameter="Logout" />
+        </Label.GestureRecognizers>
+    </Label>
+</Grid>

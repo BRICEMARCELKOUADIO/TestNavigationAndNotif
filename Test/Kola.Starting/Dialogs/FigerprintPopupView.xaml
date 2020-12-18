@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:extension="clr-namespace:Kola.Infrastructure.Design;assembly=Kola.Infrastructure"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="Kola.Starting.Dialogs.FigerprintPopupView">
+    <popup:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Bottom"
+            PositionOut="Bottom"
+            DurationIn="300"
+            DurationOut="300" />
+    </popup:PopupPage.Animation>
+    <Frame VerticalOptions="End" CornerRadius="10" Padding="20,5" Opacity="1" Margin="0,0,0,-20" 
+           BorderColor="{StaticResource color-fourth}" BackgroundColor="{StaticResource color-fourth}" 
+           HorizontalOptions="FillAndExpand">
+        <StackLayout Margin="10,0" Spacing="5">
+
+            <Label Text="LOGIN" FontSize="16" FontFamily="{StaticResource AssistantBold}" FontAttributes="Bold" TextColor="{StaticResource color-third}" />
+            <Label Text="Confirm fingerprint to continue" FontSize="12" FontAttributes="Bold" FontFamily="{StaticResource AssistantRegular}" TextColor="{StaticResource color-third}" />
+
+            <StackLayout Orientation="Horizontal" Margin="0,15,0,0" HorizontalOptions="Start" Spacing="30">
+                <Image Source="{extension:ImageSource login_fingerprint-confirmation_icon}" HeightRequest="50" VerticalOptions="Center"/>
+                <Label Text="Touch sensor" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource color-fiveth}" VerticalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout Spacing="30" Margin="0,10,0,30" HorizontalOptions="End" Orientation="Horizontal">
+                <Label Text="CANCEL" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource color-secondary}" FontFamily="{StaticResource AssistantRegular}" />
+                <Label Text="USE PASSWORD" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource color-secondary}" FontFamily="{StaticResource AssistantRegular}" />
+            </StackLayout>
+
+        </StackLayout>
+    </Frame>
+</popup:PopupPage>

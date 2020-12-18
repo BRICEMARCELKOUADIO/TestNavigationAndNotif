@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"              
+             HeightRequest="65"
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure"
+             x:Class="Kola.Infrastructure.Controls.FooterNavigation">
+    <ContentView BackgroundColor="{StaticResource color-Footer-background}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" VerticalOptions="Center">
+                <Grid.Resources>
+                    <Style TargetType="StackLayout">
+                        <Setter Property="HorizontalOptions" Value="Center" />
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="Spacing" Value="0" />
+                    </Style>
+                    <Style TargetType="Label">
+                        <Setter Property="TextColor" Value="{StaticResource color-primary}" />
+                        <Setter Property="HorizontalTextAlignment" Value="Center" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Column="0" Padding="0,10,0,5" HorizontalOptions="FillAndExpand" BackgroundColor="#f0e1e8" x:Name="HomeButton">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding GotoPageCommand}" CommandParameter="Home"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label HorizontalOptions="Center" Opacity="1" x:Name="HomeIconColor" FontSize="30"  Style="{StaticResource icon-tab_home}" />
+                    <Label FontFamily="{StaticResource OpenSansRegular}" HorizontalOptions="Center" Opacity="1" FontSize="10" Text="{localization:Translate home}" x:Name="HomeLabelColor"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1" Padding="0,10,0,5" HorizontalOptions="FillAndExpand"  x:Name="TransfersButton">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding GotoPageCommand}" CommandParameter="Transfers"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Opacity="1" Style="{StaticResource icon-tab_transfers}" HorizontalOptions="Center" x:Name="TransfersIconColor" Margin="0,5,0,0" FontSize="25"  />
+                    <Label FontFamily="{StaticResource OpenSansRegular}" HorizontalOptions="Center" Opacity="1" FontSize="10" Text="{localization:Translate transfers}" x:Name="TransfersLabelColor"/>
+                </StackLayout>
+                <StackLayout Grid.Column="2" Padding="0,10,0,5" HorizontalOptions="FillAndExpand" x:Name="AccountButton">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding GotoPageCommand}" CommandParameter="Account"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label HorizontalOptions="Center" Opacity="1" Style="{StaticResource icon-tab_my-account}" x:Name="AccountIconColor" FontSize="30"  />
+                    <Label FontFamily="{StaticResource OpenSansRegular}" HorizontalOptions="Center" Opacity="1" FontSize="10" Text="{localization:Translate my_account}" x:Name="AccountLabelColor"/>
+                </StackLayout>
+                <StackLayout Grid.Column="3" Padding="0,10,0,5" HorizontalOptions="FillAndExpand" x:Name="OptionsButton">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding GotoPageCommand}" CommandParameter="Options"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label HorizontalOptions="Center" Opacity="1" Style="{StaticResource icon-tab_options}" x:Name="OptionsIconColor" FontSize="30"  />
+                    <Label FontFamily="{StaticResource OpenSansRegular}" HorizontalOptions="Center" Opacity="1" FontSize="10" Text="{localization:Translate options}" x:Name="OptionsLabelColor"/>
+                </StackLayout>
+            </Grid>
+        </Grid>
+
+    </ContentView>
+</ContentView>

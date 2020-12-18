@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:Kola.Infrastructure.Controls;assembly=Kola.Infrastructure" 
+             xmlns:localization="clr-namespace:Kola.Infrastructure.Localization;assembly=Kola.Infrastructure"
+             Margin="40,0"
+             x:Class="Kola.Starting.Template.WithBankStep1">
+    <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+        <StackLayout Padding="0" Spacing="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="12" Text="{localization:Translate select_bank}" 
+                       TextColor="{StaticResource color-input-label}" HorizontalOptions="End"/>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-dropdown-border}" HeightRequest="43" VerticalOptions="Center" 
+                       Grid.Row="1" Padding="10,0" CornerRadius="20" 
+                    BackgroundColor="{StaticResource color-dropdown-background}" >
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OnOpenBankPopupCommand}" NumberOfTapsRequired="1" />
+                    </Frame.GestureRecognizers>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label HorizontalOptions="FillAndExpand" Text="{Binding Bank.Value}" VerticalOptions="Center" TextColor="{StaticResource color-dropdown-text}" 
+                            FontFamily="{StaticResource AssistantBold}" Grid.Column="0" FontSize="16" />
+                        <Label VerticalOptions="End" HorizontalOptions="Center" Grid.Column="1" Style="{StaticResource icon-cheveron-down}" 
+                          TextColor="{StaticResource color-dropdown-text}" FontSize="20" />
+                    </Grid>
+                </Frame>
+                <Label Grid.Row="2" IsVisible="{Binding Bank.HasError, Mode=TwoWay}" Text="{Binding Bank.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="12" Text="{localization:Translate account_type}" 
+                       TextColor="{StaticResource color-input-label}" HorizontalOptions="End"/>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-dropdown-border}" HeightRequest="43" VerticalOptions="Center" 
+                       Grid.Row="1" Padding="10,0" CornerRadius="20" 
+                    BackgroundColor="{StaticResource color-dropdown-background}" >
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OnOpenAccountTypePopupCommand}" NumberOfTapsRequired="1" />
+                    </Frame.GestureRecognizers>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label HorizontalOptions="FillAndExpand" Text="{Binding AccountType.Value}" VerticalOptions="Center" TextColor="{StaticResource color-dropdown-text}" 
+                            FontFamily="{StaticResource AssistantBold}" Grid.Column="0" FontSize="16" />
+                        <Label VerticalOptions="End" HorizontalOptions="Center" Grid.Column="1" Style="{StaticResource icon-cheveron-down}" 
+                          TextColor="{StaticResource color-dropdown-text}" FontSize="20" />
+                    </Grid>
+                </Frame>
+                <Label Grid.Row="2" IsVisible="{Binding AccountType.HasError, Mode=TwoWay}" Text="{Binding AccountType.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="12" TextColor="{StaticResource color-input-label}" HorizontalOptions="End">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{localization:Translate account_number}"/>
+                            <Span Text=" *"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-input-border}" VerticalOptions="Center" Grid.Row="1" Padding="10,0" CornerRadius="20" 
+                    BackgroundColor="{StaticResource color-input-background}" >
+                    <Entry ReturnType="Next" HorizontalOptions="FillAndExpand" Text="{Binding AccountNumber.Value}" MaxLength="{Binding AccountNumberMaxLength.Value}" Keyboard="Numeric" VerticalOptions="Center"  TextColor="{StaticResource color-input-text}" FontAttributes="None" 
+                   FontFamily="{StaticResource AssistantBold}" FontSize="16" >
+                        <Entry.Behaviors>
+                            <controls:NumericEntryBehavior/>
+                        </Entry.Behaviors>
+                    </Entry>
+                </Frame>
+                <Label Grid.Row="2" IsVisible="{Binding AccountNumber.HasError, Mode=TwoWay}" Text="{Binding AccountNumber.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="12" TextColor="{StaticResource color-input-label}" HorizontalOptions="End">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{localization:Translate first_name}"/>
+                                <Span Text=" *" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-input-border}" VerticalOptions="Center" Grid.Row="1" Padding="10,0" CornerRadius="20" 
+               BackgroundColor="{StaticResource color-input-background}" >
+                    <Entry ReturnType="Next" HorizontalOptions="FillAndExpand" x:Name="FirstName" Text="{Binding FirstName.Value}" MaxLength="100" VerticalOptions="Center" TextColor="{StaticResource color-input-text}" FontAttributes="None" 
+                   FontFamily="{StaticResource AssistantBold}" FontSize="16" >
+                        <Entry.Behaviors>
+                            <controls:UpperEntryBehavior/>
+                        </Entry.Behaviors>
+                    </Entry>
+                </Frame>
+                <Label Grid.Row="2" IsVisible="{Binding FirstName.HasError, Mode=TwoWay}" Text="{Binding FirstName.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="12" TextColor="{StaticResource color-input-label}" HorizontalOptions="End">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{localization:Translate last_name}"/>
+                                <Span Text=" *" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-input-border}" VerticalOptions="Center" Grid.Row="1" Padding="10,0" CornerRadius="20" 
+               BackgroundColor="{StaticResource color-input-background}" >
+                    <Entry ReturnType="Next" HorizontalOptions="FillAndExpand" x:Name="LastName" Text="{Binding LastName.Value}" MaxLength="100" VerticalOptions="Center" TextColor="{StaticResource color-input-text}" FontAttributes="None" 
+                   FontFamily="{StaticResource AssistantBold}" FontSize="16" >
+                        <Entry.Behaviors>
+                            <controls:UpperEntryBehavior/>
+                        </Entry.Behaviors>
+                    </Entry>
+                </Frame>
+                <Label Grid.Row="2" IsVisible="{Binding LastName.HasError, Mode=TwoWay}" Text="{Binding LastName.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+            <controls:AccountInputSelect />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="12" TextColor="{StaticResource color-input-label}" HorizontalOptions="End">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{localization:Translate amount}"/>
+                            <Span Text=" *"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame HasShadow="False" BorderColor="{StaticResource color-input-border}" VerticalOptions="Center" Grid.Row="1" Padding="10,0" CornerRadius="20" 
+                    BackgroundColor="{StaticResource color-input-background}" >
+                    <Entry ReturnType="Next" HorizontalOptions="FillAndExpand" Text="{Binding Amount.Value}" MaxLength="{Binding AmountMaxLength.Value}" Keyboard="Numeric" VerticalOptions="Center"  TextColor="{StaticResource color-input-text}" FontAttributes="None" 
+                   FontFamily="{StaticResource AssistantBold}" FontSize="16" >
+                        <Entry.Behaviors>
+                            <controls:NumericEntryBehavior/>
+                        </Entry.Behaviors>
+                    </Entry>
+                </Frame>
+                <Label Grid.Row="2" IsVisible="{Binding Amount.HasError, Mode=TwoWay}" Text="{Binding Amount.ErrorText}" 
+                                               TextColor="{StaticResource color-error}" HorizontalOptions="Center" 
+                                               FontFamily="{StaticResource OpenSansRegular}" FontSize="10" VerticalOptions="Center" />
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentView>
